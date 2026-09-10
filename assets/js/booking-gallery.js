@@ -661,7 +661,7 @@ function roomCard(room, details, photos) {
   const third = photos[2] || first;
   const fourth = photos[3] || first;
   const remaining = Math.max(photos.length - 3, 0);
-  return `<article class="room-listing">
+  return `<article class="room-listing" data-room-card="${room}" tabindex="0" role="button" aria-label="Open ${room} photos">
     <div class="room-preview-grid">
       <button class="room-photo-main" type="button" data-open-room-gallery="${room}" aria-label="Open ${room} photos">${previewTile(first, '')}</button>
       <button class="room-photo-small" type="button" data-open-room-gallery="${room}" aria-label="Open ${room} photos">${previewTile(second, '')}</button>
@@ -723,7 +723,23 @@ function renderRoomPages() {
   });
 
   document.querySelectorAll('[data-open-room-gallery]').forEach((button) => {
-    button.addEventListener('click', () => openRoomModal(button.dataset.openRoomGallery));
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+      openRoomModal(button.dataset.openRoomGallery);
+    });
+  });
+
+  document.querySelectorAll('[data-room-card]').forEach((card) => {
+    card.addEventListener('click', (event) => {
+      if (event.target.closest('a')) return;
+      openRoomModal(card.dataset.roomCard);
+    });
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openRoomModal(card.dataset.roomCard);
+      }
+    });
   });
 
   document.querySelectorAll('[data-close-modal]').forEach((button) => {
