@@ -638,7 +638,7 @@ function roomCard(room, facts, photos) {
   const remaining = Math.max(photos.length - 3, 0);
   return `<article class="room-listing">
     <div class="room-preview-grid">
-      <button class="room-photo-main" type="button" data-open-room-gallery="${room}" aria-label="Open ${room} photos">${previewTile(first, room)}</button>
+      <button class="room-photo-main" type="button" data-open-room-gallery="${room}" aria-label="Open ${room} photos">${previewTile(first, '')}</button>
       <button class="room-photo-small" type="button" data-open-room-gallery="${room}" aria-label="Open ${room} photos">${previewTile(second, '')}</button>
       <button class="room-photo-small" type="button" data-open-room-gallery="${room}" aria-label="Open ${room} photos">${previewTile(third, '')}</button>
       <button class="room-photo-more" type="button" data-open-room-gallery="${room}" aria-label="Open all ${room} photos">${previewTile(fourth, `+${remaining} photos`)}</button>

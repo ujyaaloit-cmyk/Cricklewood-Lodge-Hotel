@@ -97,14 +97,15 @@ h3{font-size:1.15rem;margin-bottom:8px}
 .room-summary{position:sticky;top:132px}
 .room-listings{display:grid;gap:18px}
 .room-listing{display:grid;grid-template-columns:minmax(360px,.92fr) 1.08fr;gap:22px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 18px 46px rgba(var(--shadow),.1)}
-.room-preview-grid{display:grid;grid-template-columns:1.45fr .78fr .78fr;grid-template-rows:130px 130px;gap:8px}
+.room-preview-grid{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:86px 86px 86px;gap:8px}
 .room-preview-grid button{position:relative;border:0;border-radius:6px;overflow:hidden;padding:0;background:#111;cursor:pointer;color:#fff;text-align:left}
 .room-preview-grid img{transition:transform .2s ease}
 .room-preview-grid button:hover img{transform:scale(1.04)}
-.room-preview-grid span{position:absolute;left:10px;bottom:10px;z-index:2;background:rgba(12,18,15,.82);color:#fff;border-radius:999px;padding:7px 10px;font-size:.78rem;font-weight:900}
+.room-preview-grid span{position:absolute;inset:0;z-index:2;display:grid;place-items:center;color:#fff;font-size:1rem;font-weight:900;text-align:center}
 .room-photo-main{grid-row:1/-1}
-.room-photo-more::after{content:"";position:absolute;inset:0;background:rgba(10,17,13,.5)}
-.room-photo-more span{font-size:.9rem;background:var(--green);color:#fff}
+.room-photo-more img{filter:brightness(.46) saturate(.82)}
+.room-photo-more::after{content:"";position:absolute;inset:0;background:rgba(10,17,13,.34)}
+.room-photo-more span{font-size:1.08rem;text-shadow:0 2px 12px rgba(0,0,0,.8)}
 .room-listing-body{display:flex;flex-direction:column;justify-content:space-between;gap:18px;padding:6px 6px 6px 0}
 .room-listing-body h2{font-size:2rem;margin-bottom:10px}
 .room-listing-actions{display:flex;flex-wrap:wrap;gap:10px}
@@ -195,6 +196,7 @@ h3{font-size:1.15rem;margin-bottom:8px}
   .booking-form,.facts,.signal-grid,.card-grid,.amenity-grid,.policy-grid,.gallery-grid,.room-gallery,.rating-grid{grid-template-columns:1fr}
   .room-preview-grid{grid-template-columns:1fr 1fr;grid-template-rows:190px 112px 112px}
   .room-photo-main{grid-column:1/-1;grid-row:auto}
+  .room-photo-more{grid-column:1/-1}
   .modal-gallery{grid-template-columns:1fr;padding:10px}
   .modal-gallery img{height:auto;aspect-ratio:4/3}
   .gallery-modal{padding:10px}
