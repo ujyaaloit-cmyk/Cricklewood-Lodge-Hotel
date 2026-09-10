@@ -669,7 +669,7 @@ function roomCard(room, details, photos) {
       <button class="room-photo-more" type="button" data-open-room-gallery="${room}" aria-label="Open all ${room} photos">${previewTile(fourth, `+${remaining} photos`)}</button>
     </div>
     <div class="room-listing-body">
-      <div><p class="eyebrow">Room type</p><h2>${room}</h2><div class="room-spec-table"><div><span>Sleeps</span><strong>${details.sleeps}</strong></div><div><span>Beds</span><strong>${details.beds}</strong></div><div><span>Bathroom</span><strong>${details.bathroom}</strong></div></div><ul class="room-meta">${features}</ul><p class="photo-note">${photos.length} matched photos available.</p></div>
+      <div><p class="eyebrow">Room type</p><h2>${room}</h2><div class="room-spec-table"><div><span>Sleeps</span><strong>${details.sleeps}</strong></div><div><span>Beds</span><strong>${details.beds}</strong></div><div><span>Bathroom</span><strong>${details.bathroom}</strong></div></div><ul class="room-meta">${features}</ul></div>
       <div class="room-listing-actions"><button class="btn btn-outline" type="button" data-open-room-gallery="${room}">View photos</button><a class="btn btn-primary" href="book.html">Check availability</a></div>
     </div>
   </article>`;
