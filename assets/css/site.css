@@ -81,7 +81,7 @@ h3{font-size:1.15rem;margin-bottom:8px}
 .split{display:grid;grid-template-columns:.88fr 1.12fr;gap:48px;align-items:center}
 .copy p{color:var(--muted);max-width:680px}
 .image-frame{height:470px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--surface)}
-.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:16px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
 .card img{height:245px}
 .card-body{padding:24px}
