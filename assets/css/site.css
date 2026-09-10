@@ -83,9 +83,22 @@ h3{font-size:1.15rem;margin-bottom:8px}
 .card-body p{color:var(--muted)}
 .card-body a{color:var(--green);font-weight:850}
 .room-card.feature{grid-column:span 1}
+.room-meta{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+.room-meta li{border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:var(--muted);font-size:.78rem;font-weight:800}
+.room-section{padding-top:64px}
+.room-section:first-child{padding-top:0}
+.room-layout{display:grid;grid-template-columns:340px 1fr;gap:24px;align-items:start}
+.room-summary{position:sticky;top:132px}
+.room-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.room-gallery figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.room-gallery img{height:220px}
+.room-gallery figcaption{padding:10px 12px;color:var(--muted);font-size:.82rem;font-weight:700}
 .gallery-grid{display:grid;grid-template-columns:1.3fr .9fr .9fr;grid-auto-rows:230px;gap:12px}
 .gallery-grid figure{margin:0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--surface)}
 .gallery-grid figure:first-child{grid-row:span 2}
+.gallery-section{padding-top:54px}
+.gallery-section:first-child{padding-top:0}
+.gallery-section h2{font-size:2rem}
 .amenity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .amenity{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;min-height:132px}
 .amenity p{color:var(--muted);margin-bottom:0}
@@ -100,6 +113,10 @@ h3{font-size:1.15rem;margin-bottom:8px}
 .policy p{color:var(--muted);margin-bottom:0}
 .review{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
 .stars{color:var(--gold);font-weight:900;letter-spacing:.08em}
+.rating-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:26px}
+.rating{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.rating strong{display:block;color:var(--green);font:800 2rem var(--display);line-height:1}
+.rating span{color:var(--muted);font-size:.86rem;font-weight:800}
 
 .page-hero{padding:160px 0 64px;background:var(--green-dark);color:#fff}
 .page-hero p{max-width:680px;color:rgba(255,255,255,.78)}
@@ -116,11 +133,12 @@ h3{font-size:1.15rem;margin-bottom:8px}
 @media (max-width:1000px){
   .nav-links{display:none}
   .menu-toggle{display:block}
-  .booking-card,.split,.location-grid{grid-template-columns:1fr}
+  .booking-card,.split,.location-grid,.room-layout{grid-template-columns:1fr}
+  .room-summary{position:static}
   .booking-form{grid-template-columns:1fr 1fr}
   .booking-form button{grid-column:1/-1}
-  .facts,.card-grid,.amenity-grid,.policy-grid{grid-template-columns:1fr 1fr}
-  .gallery-grid{grid-template-columns:1fr 1fr}
+  .facts,.card-grid,.amenity-grid,.policy-grid,.rating-grid{grid-template-columns:1fr 1fr}
+  .gallery-grid,.room-gallery{grid-template-columns:1fr 1fr}
 }
 
 @media (max-width:680px){
@@ -135,7 +153,7 @@ h3{font-size:1.15rem;margin-bottom:8px}
   .container{padding:0 14px}
   .booking-panel{margin-top:-38px}
   .booking-card{padding:18px}
-  .booking-form,.facts,.card-grid,.amenity-grid,.policy-grid,.gallery-grid{grid-template-columns:1fr}
+  .booking-form,.facts,.card-grid,.amenity-grid,.policy-grid,.gallery-grid,.room-gallery,.rating-grid{grid-template-columns:1fr}
   .gallery-grid{grid-auto-rows:auto}
   .gallery-grid figure,.gallery-grid figure:first-child{height:auto;aspect-ratio:4/3;grid-row:auto}
   .card img,.image-frame{height:auto;aspect-ratio:4/3}
