@@ -593,11 +593,36 @@ const bookingGalleries = {
 
 
 const roomDetails = {
-  'Double Room': ['1 double bed', 'Max 2 guests', 'Ensuite bathroom', 'Flat-screen TV', 'Free WiFi'],
-  'Twin Room': ['1 single bed + 1 double bed', 'Max 2 guests', 'Ensuite bathroom', 'Flat-screen TV', 'Free WiFi'],
-  'Basic Triple Room': ['3 single beds', 'Max 3 guests', 'Ensuite bathroom', 'Flat-screen TV', 'Free WiFi'],
-  'Family Room': ['2 double beds or 2 single beds + 1 double bed', 'Max 4 guests', 'Ensuite bathroom', 'Flat-screen TV', 'Free WiFi'],
-  'Single Room': ['1 single bed', 'Max 1 guest', 'Ensuite bathroom', 'Flat-screen TV', 'Free WiFi']
+  'Single Room': {
+    sleeps: '1 guest',
+    beds: '1 single bed',
+    bathroom: 'Ensuite bathroom',
+    features: ['Flat-screen TV', 'Tea & coffee', 'Free WiFi']
+  },
+  'Double Room': {
+    sleeps: '2 guests',
+    beds: '1 double bed',
+    bathroom: 'Ensuite bathroom',
+    features: ['Flat-screen TV', 'Tea & coffee', 'Free WiFi']
+  },
+  'Twin Room': {
+    sleeps: '2 guests',
+    beds: '1 single bed + 1 double bed',
+    bathroom: 'Ensuite bathroom',
+    features: ['Flat-screen TV', 'Tea & coffee', 'Free WiFi']
+  },
+  'Basic Triple Room': {
+    sleeps: '3 guests',
+    beds: '3 single beds',
+    bathroom: 'Ensuite bathroom',
+    features: ['Flat-screen TV', 'Tea & coffee', 'Free WiFi']
+  },
+  'Family Room': {
+    sleeps: '4 guests',
+    beds: '2 double beds or 2 single beds + 1 double bed',
+    bathroom: 'Ensuite bathroom',
+    features: ['Flat-screen TV', 'Tea & coffee', 'Free WiFi']
+  }
 };
 
 function figureFor(photo, caption) {
@@ -629,8 +654,8 @@ function previewTile(photo, label, className = '') {
   return `<img class="${className}" src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async">${label ? `<span>${label}</span>` : ''}`;
 }
 
-function roomCard(room, facts, photos) {
-  const summary = facts.map((fact) => `<li>${fact}</li>`).join('');
+function roomCard(room, details, photos) {
+  const features = details.features.map((fact) => `<li>${fact}</li>`).join('');
   const first = photos[0];
   const second = photos[1] || first;
   const third = photos[2] || first;
@@ -644,7 +669,7 @@ function roomCard(room, facts, photos) {
       <button class="room-photo-more" type="button" data-open-room-gallery="${room}" aria-label="Open all ${room} photos">${previewTile(fourth, `+${remaining} photos`)}</button>
     </div>
     <div class="room-listing-body">
-      <div><p class="eyebrow">Room type</p><h2>${room}</h2><ul class="room-meta">${summary}</ul><p class="photo-note">${photos.length} matched photos available.</p></div>
+      <div><p class="eyebrow">Room type</p><h2>${room}</h2><div class="room-spec-table"><div><span>Sleeps</span><strong>${details.sleeps}</strong></div><div><span>Beds</span><strong>${details.beds}</strong></div><div><span>Bathroom</span><strong>${details.bathroom}</strong></div></div><ul class="room-meta">${features}</ul><p class="photo-note">${photos.length} matched photos available.</p></div>
       <div class="room-listing-actions"><button class="btn btn-outline" type="button" data-open-room-gallery="${room}">View photos</button><a class="btn btn-primary" href="book.html">Check availability</a></div>
     </div>
   </article>`;
@@ -672,9 +697,9 @@ function closeRoomModal() {
 function renderRoomPages() {
   const roomsRoot = document.querySelector('[data-room-galleries]');
   if (roomsRoot) {
-    roomsRoot.innerHTML = `<div class="room-listings">${Object.entries(roomDetails).map(([room, facts]) => {
+    roomsRoot.innerHTML = `<div class="room-listings">${Object.entries(roomDetails).map(([room, details]) => {
       const photos = orderedRoomPhotos(bookingGalleries[room] || []);
-      return roomCard(room, facts, photos);
+      return roomCard(room, details, photos);
     }).join('')}</div><div class="gallery-modal" hidden data-gallery-modal><div class="gallery-modal-panel" role="dialog" aria-modal="true" aria-labelledby="roomGalleryTitle"><div class="gallery-modal-head"><div><p class="eyebrow" data-modal-count></p><h2 id="roomGalleryTitle" data-modal-title></h2></div><button class="modal-close" type="button" data-close-modal aria-label="Close gallery">Close</button></div><div class="modal-gallery" data-modal-gallery></div></div></div>`;
   }
 
