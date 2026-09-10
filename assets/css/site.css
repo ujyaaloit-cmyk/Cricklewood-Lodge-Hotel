@@ -99,6 +99,10 @@ h3{font-size:1.15rem;margin-bottom:8px}
 .room-gallery figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 12px 34px rgba(var(--shadow),.08)}
 .room-gallery img{height:220px}
 .room-gallery figcaption{padding:10px 12px;color:var(--muted);font-size:.82rem;font-weight:800;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(31,90,64,.06))}
+.gallery-extra[hidden]{display:none}
+.gallery-extra:not([hidden]){display:contents}
+.show-more{grid-column:1/-1;height:48px;border:1px solid var(--green);border-radius:999px;background:var(--surface);color:var(--green);font:850 .92rem var(--body);cursor:pointer}
+.show-more:hover{background:var(--green);color:#fff}
 .gallery-grid{display:grid;grid-template-columns:1.3fr .9fr .9fr;grid-auto-rows:230px;gap:12px}
 .gallery-grid figure{margin:0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--surface)}
 .gallery-grid figure:first-child{grid-row:span 2}

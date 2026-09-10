@@ -473,14 +473,6 @@ const bookingGalleries = {
   ],
   "Single Room": [
     {
-      "src": "../assets/images/booking-room-types/single-room/01-63494458-a-vase-of-flowers-sitting-on-a-window-sill-at-cricklewood-.jpg",
-      "alt": "A vase of flowers sitting on a window sill at cricklewood "
-    },
-    {
-      "src": "../assets/images/booking-room-types/single-room/02-63494459-a-store-hallway-with-windows-and-a-flower-arrangement-at-c.jpg",
-      "alt": "A store hallway with windows and a flower arrangement at c"
-    },
-    {
       "src": "../assets/images/booking-room-types/single-room/03-63494460-a-bath-tub-with-a-water-fountain-in-a-bathroom-at-cricklew.jpg",
       "alt": "A bath tub with a water fountain in a bathroom at cricklew"
     },
@@ -585,10 +577,16 @@ const bookingGalleries = {
     {
       "src": "../assets/images/booking-room-types/property/01-61395759-a-hotel-sign-in-front-of-a-building-at-cricklewood-lodge-h.jpg",
       "alt": "A hotel sign in front of a building at cricklewood lodge h"
+    }
+  ],
+  "Outside Reception": [
+    {
+      "src": "../assets/images/booking-room-types/outside-reception/01-63494458-a-vase-of-flowers-sitting-on-a-window-sill-at-cricklewood-.jpg",
+      "alt": "A vase of flowers sitting on a window sill at Cricklewood Lodge Hotel"
     },
     {
-      "src": "../assets/images/booking-room-types/property/02-63497195-a-bedroom-with-a-tv-on-the-wall-and-a-bed-at-cricklewood-l.jpg",
-      "alt": "A bedroom with a tv on the wall and a bed at cricklewood l"
+      "src": "../assets/images/booking-room-types/outside-reception/02-63494459-a-store-hallway-with-windows-and-a-flower-arrangement-at-c.jpg",
+      "alt": "Reception hallway with flowers at Cricklewood Lodge Hotel"
     }
   ]
 };
@@ -606,13 +604,34 @@ function figureFor(photo, caption) {
   return `<figure><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async"><figcaption>${caption || photo.alt}</figcaption></figure>`;
 }
 
+function isMainRoomPhoto(photo) {
+  const alt = photo.alt.toLowerCase();
+  const roomMatch = alt.includes('bed') || alt.includes('hotel room') || alt.includes('bedroom') || alt.includes('room with');
+  const secondaryMatch = alt.includes('bathroom') || alt.includes('shower') || alt.includes('ceiling') || alt.includes('light') || alt.includes('urinal') || alt.includes('dining') || alt.includes('hallway') || alt.includes('flowers');
+  return roomMatch && !secondaryMatch;
+}
+
+function orderedRoomPhotos(photos) {
+  const main = photos.filter(isMainRoomPhoto);
+  const rest = photos.filter((photo) => !main.includes(photo));
+  return [...main, ...rest];
+}
+
+function expandableGallery(photos, caption, initialCount = 4) {
+  const visible = photos.slice(0, initialCount).map((photo) => figureFor(photo, caption)).join('');
+  const hidden = photos.slice(initialCount).map((photo) => `<div class="gallery-extra" hidden>${figureFor(photo, caption)}</div>`).join('');
+  const remaining = Math.max(photos.length - initialCount, 0);
+  const button = remaining ? `<button class="show-more" type="button" data-show-more>Show more ${remaining} photos</button>` : '';
+  return `${visible}${hidden}${button}`;
+}
+
 function renderRoomPages() {
   const roomsRoot = document.querySelector('[data-room-galleries]');
   if (roomsRoot) {
     roomsRoot.innerHTML = Object.entries(roomDetails).map(([room, facts]) => {
-      const photos = (bookingGalleries[room] || []).slice(0, 9);
+      const photos = orderedRoomPhotos(bookingGalleries[room] || []);
       const summary = facts.map((fact) => `<li>${fact}</li>`).join('');
-      const gallery = photos.map((photo) => figureFor(photo, room)).join('');
+      const gallery = expandableGallery(photos, room, 4);
       return `<article class="room-section room-layout"><div class="room-summary"><p class="eyebrow">Booking.com room type</p><h2>${room}</h2><p>Photos below are grouped from the selected-date Booking.com room gallery for this exact room type.</p><ul class="room-meta">${summary}</ul><p class="photo-note">${bookingGalleries[room].length} matched photos saved for this room type.</p><a class="btn btn-outline" href="book.html">Check availability</a></div><div class="room-gallery">${gallery}</div></article>`;
     }).join('');
   }
@@ -620,10 +639,21 @@ function renderRoomPages() {
   const galleryRoot = document.querySelector('[data-full-gallery]');
   if (galleryRoot) {
     galleryRoot.innerHTML = Object.entries(bookingGalleries).map(([group, photos]) => {
-      const gallery = photos.map((photo) => figureFor(photo, group)).join('');
+      const orderedPhotos = roomDetails[group] ? orderedRoomPhotos(photos) : photos;
+      const gallery = expandableGallery(orderedPhotos, group, roomDetails[group] ? 4 : photos.length);
       return `<section class="gallery-section"><div class="section-head"><p class="eyebrow">${photos.length} matched photos</p><h2>${group}</h2></div><div class="room-gallery">${gallery}</div></section>`;
     }).join('');
   }
+
+  document.querySelectorAll('[data-show-more]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const gallery = button.closest('.room-gallery');
+      gallery.querySelectorAll('.gallery-extra').forEach((item) => {
+        item.hidden = false;
+      });
+      button.remove();
+    });
+  });
 }
 
 renderRoomPages();
