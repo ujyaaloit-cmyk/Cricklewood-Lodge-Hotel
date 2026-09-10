@@ -625,15 +625,57 @@ function expandableGallery(photos, caption, initialCount = 4) {
   return `${visible}${hidden}${button}`;
 }
 
+function previewTile(photo, label, className = '') {
+  return `<img class="${className}" src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async">${label ? `<span>${label}</span>` : ''}`;
+}
+
+function roomCard(room, facts, photos) {
+  const summary = facts.map((fact) => `<li>${fact}</li>`).join('');
+  const first = photos[0];
+  const second = photos[1] || first;
+  const third = photos[2] || first;
+  const fourth = photos[3] || first;
+  const remaining = Math.max(photos.length - 3, 0);
+  return `<article class="room-listing">
+    <div class="room-preview-grid">
+      <button class="room-photo-main" type="button" data-open-room-gallery="${room}" aria-label="Open ${room} photos">${previewTile(first, room)}</button>
+      <button class="room-photo-small" type="button" data-open-room-gallery="${room}" aria-label="Open ${room} photos">${previewTile(second, '')}</button>
+      <button class="room-photo-small" type="button" data-open-room-gallery="${room}" aria-label="Open ${room} photos">${previewTile(third, '')}</button>
+      <button class="room-photo-more" type="button" data-open-room-gallery="${room}" aria-label="Open all ${room} photos">${previewTile(fourth, `+${remaining} photos`)}</button>
+    </div>
+    <div class="room-listing-body">
+      <div><p class="eyebrow">Room type</p><h2>${room}</h2><ul class="room-meta">${summary}</ul><p class="photo-note">${photos.length} matched photos available.</p></div>
+      <div class="room-listing-actions"><button class="btn btn-outline" type="button" data-open-room-gallery="${room}">View photos</button><a class="btn btn-primary" href="book.html">Check availability</a></div>
+    </div>
+  </article>`;
+}
+
+function openRoomModal(room) {
+  const modal = document.querySelector('[data-gallery-modal]');
+  if (!modal) return;
+  const photos = orderedRoomPhotos(bookingGalleries[room] || []);
+  modal.querySelector('[data-modal-title]').textContent = room;
+  modal.querySelector('[data-modal-count]').textContent = `${photos.length} photos`;
+  modal.querySelector('[data-modal-gallery]').innerHTML = photos.map((photo) => figureFor(photo, room)).join('');
+  modal.hidden = false;
+  document.body.classList.add('modal-open');
+  modal.querySelector('[data-close-modal]').focus();
+}
+
+function closeRoomModal() {
+  const modal = document.querySelector('[data-gallery-modal]');
+  if (!modal) return;
+  modal.hidden = true;
+  document.body.classList.remove('modal-open');
+}
+
 function renderRoomPages() {
   const roomsRoot = document.querySelector('[data-room-galleries]');
   if (roomsRoot) {
-    roomsRoot.innerHTML = Object.entries(roomDetails).map(([room, facts]) => {
+    roomsRoot.innerHTML = `<div class="room-listings">${Object.entries(roomDetails).map(([room, facts]) => {
       const photos = orderedRoomPhotos(bookingGalleries[room] || []);
-      const summary = facts.map((fact) => `<li>${fact}</li>`).join('');
-      const gallery = expandableGallery(photos, room, 4);
-      return `<article class="room-section room-layout"><div class="room-summary"><p class="eyebrow">Booking.com room type</p><h2>${room}</h2><p>Photos below are grouped from the selected-date Booking.com room gallery for this exact room type.</p><ul class="room-meta">${summary}</ul><p class="photo-note">${bookingGalleries[room].length} matched photos saved for this room type.</p><a class="btn btn-outline" href="book.html">Check availability</a></div><div class="room-gallery">${gallery}</div></article>`;
-    }).join('');
+      return roomCard(room, facts, photos);
+    }).join('')}</div><div class="gallery-modal" hidden data-gallery-modal><div class="gallery-modal-panel" role="dialog" aria-modal="true" aria-labelledby="roomGalleryTitle"><div class="gallery-modal-head"><div><p class="eyebrow" data-modal-count></p><h2 id="roomGalleryTitle" data-modal-title></h2></div><button class="modal-close" type="button" data-close-modal aria-label="Close gallery">Close</button></div><div class="modal-gallery" data-modal-gallery></div></div></div>`;
   }
 
   const galleryRoot = document.querySelector('[data-full-gallery]');
@@ -653,6 +695,24 @@ function renderRoomPages() {
       });
       button.remove();
     });
+  });
+
+  document.querySelectorAll('[data-open-room-gallery]').forEach((button) => {
+    button.addEventListener('click', () => openRoomModal(button.dataset.openRoomGallery));
+  });
+
+  document.querySelectorAll('[data-close-modal]').forEach((button) => {
+    button.addEventListener('click', closeRoomModal);
+  });
+
+  document.querySelectorAll('[data-gallery-modal]').forEach((modal) => {
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closeRoomModal();
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeRoomModal();
   });
 }
 
