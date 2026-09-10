@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cricklewood Lodge Hotel | London NW2</title>
+  <meta name="description" content="Cricklewood Lodge Hotel on Cricklewood Broadway, London NW2. Free WiFi, family rooms, luggage storage and easy access to Kilburn Underground.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav">
+      <a class="brand" href="index.html"><picture class="brand-logo"><source srcset="assets/images/cricklewood-logo-light.png" media="(prefers-color-scheme: dark)"><img src="assets/images/cricklewood-logo-dark.png" alt="Cricklewood Lodge Hotel"></picture><span class="sr-only">Cricklewood Lodge Hotel</span></a>
+      <nav class="nav-links">
+        <a href="pages/about.html">About</a><a href="pages/rooms.html">Rooms</a><a href="pages/gallery.html">Gallery</a><a href="pages/amenities.html">Amenities</a><a href="pages/location.html">Location</a>
+      </nav>
+      <div class="nav-actions"><a class="btn btn-primary" href="pages/book.html">Book Now</a><button class="menu-toggle" data-menu-toggle aria-label="Menu" aria-expanded="false">=</button></div>
+    </div>
+  </header>
+  <nav class="mobile-menu" data-mobile-menu>
+    <a href="pages/about.html">About</a><a href="pages/rooms.html">Rooms</a><a href="pages/gallery.html">Gallery</a><a href="pages/amenities.html">Amenities</a><a href="pages/location.html">Location</a><a href="pages/book.html">Book Now</a>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-media"><img src="assets/images/exterior.jpg" alt="Cricklewood Lodge Hotel exterior"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Cricklewood Broadway / London NW2</p>
+        <h1>Cricklewood Lodge Hotel</h1>
+        <p>A practical London base for short stays, work trips and family visits, close to Kilburn Underground and North West London routes.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="pages/book.html">Check Availability</a><a class="btn btn-light" href="pages/rooms.html">View Rooms</a></div>
+      </div>
+    </section>
+
+    <section class="booking-panel container" aria-labelledby="bookingTitle">
+      <div class="booking-card">
+        <div><p class="eyebrow">Availability</p><h2 id="bookingTitle">Find your stay</h2></div>
+        <form class="booking-form" id="bookingForm">
+          <label><span>Check-in</span><input type="date" id="checkIn" required></label>
+          <label><span>Check-out</span><input type="date" id="checkOut" required></label>
+          <label><span>Guests</span><select id="guests"><option value="1">1 guest</option><option value="2" selected>2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option></select></label>
+          <label><span>Rooms</span><select id="rooms"><option value="1" selected>1 room</option><option value="2">2 rooms</option><option value="3">3 rooms</option></select></label>
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="container facts">
+      <article class="fact"><strong>32</strong><span>guest rooms</span></article>
+      <article class="fact"><strong>Free</strong><span>WiFi available</span></article>
+      <article class="fact"><strong>14:00</strong><span>check-in from</span></article>
+      <article class="fact"><strong>NW2</strong><span>London location</span></article>
+    </section>
+
+    <section class="section container split">
+      <div class="copy"><p class="eyebrow">About</p><h2>A straightforward base in North West London.</h2><p>Cricklewood Lodge Hotel offers simple, useful accommodation on Cricklewood Broadway, with local shops, restaurants and public transport close by.</p><a class="btn btn-outline" href="pages/about.html">Read More</a></div>
+      <div class="image-frame"><img src="assets/images/interior.jpg" alt="Interior at Cricklewood Lodge Hotel"></div>
+    </section>
+
+    <section class="section container">
+      <div class="section-head"><p class="eyebrow">Rooms</p><h2>Rooms for solo stays, couples and families.</h2></div>
+      <div class="card-grid">
+        <article class="card"><img src="assets/images/room-double.jpg" alt="Double room"><div class="card-body"><h3>Double & Twin Rooms</h3><p>Comfortable practical rooms for one or two guests.</p><a href="pages/rooms.html">Explore rooms</a></div></article>
+        <article class="card"><img src="assets/images/room-family.jpg" alt="Family room"><div class="card-body"><h3>Family Rooms</h3><p>Flexible layouts for guests travelling together.</p><a href="pages/rooms.html">Explore rooms</a></div></article>
+        <article class="card"><img src="assets/images/interior.jpg" alt="Hotel interior"><div class="card-body"><h3>Simple Essentials</h3><p>Free WiFi, TV, tea and coffee, and luggage storage.</p><a href="pages/amenities.html">View amenities</a></div></article>
+      </div>
+    </section>
+
+    <section class="cta">
+      <p class="eyebrow">Ready to Book?</p><h2>Check live availability for your dates.</h2><p>Search rooms online through the hotel listing or call the hotel before you travel.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="pages/book.html">Book Now</a><a class="btn btn-ghost" href="tel:+442084505546">Call 020 8450 5546</a></div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="footer-inner"><div><img class="footer-logo" src="assets/images/cricklewood-logo-light.png" alt="Cricklewood Lodge Hotel"><p>1 Cricklewood Broadway, London NW2 3JX</p></div><div><a href="pages/contact.html">Contact</a><br><a href="pages/policies.html">Policies</a></div></div><div class="footer-bottom"><span>Cricklewood Lodge Hotel</span><span>London NW2</span></div></footer>
+  <a class="mobile-book" href="pages/book.html">Book Now</a>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
