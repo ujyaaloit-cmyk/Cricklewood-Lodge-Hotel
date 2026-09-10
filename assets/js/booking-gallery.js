@@ -603,7 +603,7 @@ const roomDetails = {
 };
 
 function figureFor(photo, caption) {
-  return `<figure><img src="${photo.src}" alt="${photo.alt}"><figcaption>${caption || photo.alt}</figcaption></figure>`;
+  return `<figure><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async"><figcaption>${caption || photo.alt}</figcaption></figure>`;
 }
 
 function renderRoomPages() {
@@ -613,7 +613,7 @@ function renderRoomPages() {
       const photos = (bookingGalleries[room] || []).slice(0, 9);
       const summary = facts.map((fact) => `<li>${fact}</li>`).join('');
       const gallery = photos.map((photo) => figureFor(photo, room)).join('');
-      return `<article class="room-section room-layout"><div class="room-summary"><p class="eyebrow">Booking.com room type</p><h2>${room}</h2><p>Photos below are grouped from the selected-date Booking.com room gallery for this exact room type.</p><ul class="room-meta">${summary}</ul><a class="btn btn-outline" href="book.html">Check availability</a></div><div class="room-gallery">${gallery}</div></article>`;
+      return `<article class="room-section room-layout"><div class="room-summary"><p class="eyebrow">Booking.com room type</p><h2>${room}</h2><p>Photos below are grouped from the selected-date Booking.com room gallery for this exact room type.</p><ul class="room-meta">${summary}</ul><p class="photo-note">${bookingGalleries[room].length} matched photos saved for this room type.</p><a class="btn btn-outline" href="book.html">Check availability</a></div><div class="room-gallery">${gallery}</div></article>`;
     }).join('');
   }
 
@@ -621,7 +621,7 @@ function renderRoomPages() {
   if (galleryRoot) {
     galleryRoot.innerHTML = Object.entries(bookingGalleries).map(([group, photos]) => {
       const gallery = photos.map((photo) => figureFor(photo, group)).join('');
-      return `<section class="gallery-section"><div class="section-head"><p class="eyebrow">${photos.length} photos</p><h2>${group}</h2></div><div class="room-gallery">${gallery}</div></section>`;
+      return `<section class="gallery-section"><div class="section-head"><p class="eyebrow">${photos.length} matched photos</p><h2>${group}</h2></div><div class="room-gallery">${gallery}</div></section>`;
     }).join('');
   }
 }
