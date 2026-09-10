@@ -37,12 +37,12 @@ h3{font-size:1.15rem;margin-bottom:8px}
 .site-header{position:fixed;top:14px;left:22px;right:22px;z-index:50;background:rgba(255,253,248,.94);border:1px solid rgba(255,255,255,.62);border-radius:var(--radius);box-shadow:0 18px 50px rgba(var(--shadow),.16);backdrop-filter:blur(16px)}
 .nav{height:90px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:0 14px 0 18px}
 .brand{display:flex;align-items:center;gap:12px;font-weight:850;min-width:0}
-.brand-logo{display:block;width:clamp(290px,30vw,410px);height:82px;flex:none}
+.brand-logo{display:block;width:clamp(260px,27vw,380px);height:82px;flex:none}
 .brand-logo img{width:100%;height:100%;object-fit:contain;object-position:left center}
 .brand-mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-size:.78rem;letter-spacing:.08em;flex:none}
 .brand span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.nav-links{display:flex;gap:6px;color:var(--muted);font-size:.88rem;font-weight:800;background:rgba(255,255,255,.48);border:1px solid rgba(221,210,192,.6);border-radius:999px;padding:5px}
-.nav-links a{border-radius:999px;padding:8px 10px;white-space:nowrap}
+.nav-links{display:flex;gap:4px;color:var(--muted);font-size:.84rem;font-weight:800;background:rgba(255,255,255,.48);border:1px solid rgba(221,210,192,.6);border-radius:999px;padding:5px}
+.nav-links a{border-radius:999px;padding:8px 9px;white-space:nowrap}
 .nav-links a:hover{background:var(--green);color:#fff}
 .nav-actions{display:flex;gap:10px;align-items:center}
 .menu-toggle{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--ink);font-weight:800}
@@ -82,6 +82,8 @@ h3{font-size:1.15rem;margin-bottom:8px}
 .split{display:grid;grid-template-columns:.88fr 1.12fr;gap:48px;align-items:center}
 .copy p{color:var(--muted);max-width:680px}
 .image-frame{height:470px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+.reception-gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;height:470px}
+.reception-gallery img{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
 .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:16px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
 .card img{height:245px}
@@ -143,6 +145,10 @@ h3{font-size:1.15rem;margin-bottom:8px}
 .amenity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .amenity{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;min-height:132px}
 .amenity p{color:var(--muted);margin-bottom:0}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.service{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;min-height:150px}
+.service span{display:block;color:var(--green);font-weight:900;margin-bottom:10px}
+.service p{color:var(--muted);margin:0}
 .location-grid{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start}
 .map-card{height:420px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
 .map-card iframe{width:100%;height:100%;border:0}
@@ -200,7 +206,7 @@ h3{font-size:1.15rem;margin-bottom:8px}
   .room-listing-body{padding:0}
   .booking-form{grid-template-columns:1fr 1fr}
   .booking-form button{grid-column:1/-1}
-  .facts,.signal-grid,.card-grid,.amenity-grid,.policy-grid,.rating-grid,.place-grid{grid-template-columns:1fr 1fr}
+  .facts,.signal-grid,.card-grid,.amenity-grid,.service-grid,.policy-grid,.rating-grid,.place-grid{grid-template-columns:1fr 1fr}
   .gallery-grid,.room-gallery,.modal-gallery{grid-template-columns:1fr 1fr}
 }
 
@@ -216,7 +222,8 @@ h3{font-size:1.15rem;margin-bottom:8px}
   .container{padding:0 14px}
   .booking-panel{margin-top:-38px}
   .booking-card{padding:18px}
-  .booking-form,.facts,.signal-grid,.card-grid,.amenity-grid,.policy-grid,.gallery-grid,.room-gallery,.rating-grid,.route-options,.place-grid{grid-template-columns:1fr}
+  .booking-form,.facts,.signal-grid,.card-grid,.amenity-grid,.service-grid,.policy-grid,.gallery-grid,.room-gallery,.rating-grid,.route-options,.place-grid,.reception-gallery{grid-template-columns:1fr}
+  .reception-gallery{height:auto}
   .room-preview-grid{grid-template-columns:1fr 1fr;grid-template-rows:190px 112px 112px}
   .room-photo-main{grid-column:1/-1;grid-row:auto}
   .room-photo-more{grid-column:1/-1}
