@@ -5,6 +5,48 @@ const checkIn = document.getElementById('checkIn');
 const checkOut = document.getElementById('checkOut');
 const siteHeader = document.querySelector('.site-header');
 
+const navMenus = {
+  about: [
+    ['About Hotel', 'about.html'],
+    ['Amenities', 'amenities.html'],
+    ['Policies', 'policies.html'],
+    ['Contact', 'contact.html']
+  ],
+  rooms: [
+    ['All Rooms', 'rooms.html'],
+    ['Single Room', 'rooms.html#single-room'],
+    ['Double Room', 'rooms.html#double-room'],
+    ['Twin Room', 'rooms.html#twin-room'],
+    ['Basic Triple Room', 'rooms.html#basic-triple-room'],
+    ['Family Room', 'rooms.html#family-room']
+  ],
+  travel: [
+    ['London Travel', 'travel.html'],
+    ['Event Venues', 'travel.html#event-venues'],
+    ['Famous Landmarks', 'travel.html#famous-landmarks'],
+    ['Museums', 'travel.html#museums'],
+    ['Airports & Rail', 'travel.html#airports-rail']
+  ],
+  'guest-services': [
+    ['Guest Services', 'guest-services.html'],
+    ['Reception Help', 'guest-services.html#reception-help'],
+    ['Extra Towels', 'guest-services.html#reception-help'],
+    ['Iron / Hairdryer', 'guest-services.html#reception-help']
+  ],
+  amenities: [
+    ['Amenities', 'amenities.html'],
+    ['Free WiFi', 'amenities.html#wifi'],
+    ['Family Rooms', 'amenities.html#family-rooms'],
+    ['Policies', 'policies.html']
+  ],
+  location: [
+    ['Location', 'location.html'],
+    ['Google Map', 'location.html#map'],
+    ['Contact', 'contact.html'],
+    ['Book', 'book.html']
+  ]
+};
+
 function localDate(daysFromToday) {
   const date = new Date();
   date.setDate(date.getDate() + daysFromToday);
@@ -38,19 +80,89 @@ if (siteHeader) {
   window.addEventListener('scroll', updateHeader, { passive: true });
 }
 
+document.querySelectorAll('.nav-links').forEach((nav) => {
+  Object.entries(navMenus).forEach(([key, links]) => {
+    const trigger = [...nav.querySelectorAll('a')].find((link) => {
+      const href = link.getAttribute('href') || '';
+      return href.endsWith(`${key}.html`);
+    });
+    if (!trigger || trigger.dataset.hasMenu) return;
+
+    const item = document.createElement('span');
+    item.className = 'nav-menu-item';
+    trigger.parentNode.insertBefore(item, trigger);
+    item.appendChild(trigger);
+    trigger.dataset.hasMenu = 'true';
+    trigger.setAttribute('aria-haspopup', 'true');
+    trigger.setAttribute('aria-expanded', 'false');
+
+    const navPathPrefix = trigger.getAttribute('href').includes('/') ? 'pages/' : '';
+    const navHref = (href) => href.startsWith('../') || href.startsWith('pages/') ? href : `${navPathPrefix}${href}`;
+    const panel = document.createElement('span');
+    panel.className = 'nav-dropdown';
+    panel.innerHTML = links.map(([label, href]) => `<a href="${navHref(href)}">${label}</a>`).join('');
+    item.appendChild(panel);
+
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      const open = item.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', String(open));
+      document.querySelectorAll('.nav-menu-item.open').forEach((other) => {
+        if (other !== item) {
+          other.classList.remove('open');
+          const otherTrigger = other.querySelector('[aria-expanded]');
+          if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  });
+});
+
+document.addEventListener('click', (event) => {
+  if (event.target.closest('.nav-menu-item')) return;
+  document.querySelectorAll('.nav-menu-item.open').forEach((item) => {
+    item.classList.remove('open');
+    const trigger = item.querySelector('[aria-expanded]');
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+  });
+});
+
+if (mobileMenu) {
+  Object.entries(navMenus).forEach(([key, links]) => {
+    const trigger = [...mobileMenu.querySelectorAll('a')].find((link) => {
+      const href = link.getAttribute('href') || '';
+      return href.endsWith(`${key}.html`);
+    });
+    if (!trigger || trigger.dataset.mobileMenuAdded) return;
+    trigger.dataset.mobileMenuAdded = 'true';
+    const navPathPrefix = trigger.getAttribute('href').includes('/') ? 'pages/' : '';
+    const navHref = (href) => href.startsWith('../') || href.startsWith('pages/') ? href : `${navPathPrefix}${href}`;
+    const sub = document.createElement('div');
+    sub.className = 'mobile-sub-links';
+    sub.innerHTML = links.slice(1).map(([label, href]) => `<a href="${navHref(href)}">${label}</a>`).join('');
+    trigger.insertAdjacentElement('afterend', sub);
+  });
+  mobileMenu.addEventListener('click', (event) => {
+    if (!event.target.closest('a')) return;
+    mobileMenu.classList.remove('open');
+    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+  });
+}
+
 document.querySelectorAll('.nav-links a, .mobile-menu a').forEach((link) => {
   const current = new URL(window.location.href);
   const target = new URL(link.getAttribute('href'), window.location.href);
   const currentPage = current.pathname.split('/').pop() || 'index.html';
   const targetPage = target.pathname.split('/').pop() || 'index.html';
-  if (currentPage === targetPage) link.classList.add('active');
+  if (currentPage === targetPage && (!target.hash || current.hash === target.hash)) link.classList.add('active');
 });
 
 if (checkIn && checkOut) {
+  const params = new URLSearchParams(window.location.search);
   checkIn.min = localDate(0);
   checkOut.min = localDate(1);
-  if (!checkIn.value) checkIn.value = localDate(14);
-  if (!checkOut.value) checkOut.value = localDate(15);
+  if (!checkIn.value) checkIn.value = params.get('checkin') || localDate(14);
+  if (!checkOut.value) checkOut.value = params.get('checkout') || localDate(15);
   checkIn.addEventListener('change', () => {
     const next = new Date(`${checkIn.value}T00:00:00`);
     next.setDate(next.getDate() + 1);
@@ -58,6 +170,22 @@ if (checkIn && checkOut) {
     checkOut.min = nextValue;
     if (!checkOut.value || checkOut.value <= checkIn.value) checkOut.value = nextValue;
   });
+}
+
+if (bookingForm) {
+  const params = new URLSearchParams(window.location.search);
+  const guestsParam = params.get('guests');
+  const roomsParam = params.get('rooms');
+  const roomParam = params.get('room');
+  const guestsSelect = document.getElementById('guests');
+  const roomsSelect = document.getElementById('rooms');
+  if (guestsParam && guestsSelect) guestsSelect.value = guestsParam;
+  if (roomsParam && roomsSelect) roomsSelect.value = roomsParam;
+  if (roomParam) {
+    const label = roomParam.replace(/-/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
+    const cardTitle = bookingForm.closest('.booking-card')?.querySelector('h2');
+    if (cardTitle) cardTitle.textContent = `${label} availability`;
+  }
 }
 
 if (bookingForm) {

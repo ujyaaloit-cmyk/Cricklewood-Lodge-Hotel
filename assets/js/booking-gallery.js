@@ -654,6 +654,15 @@ function previewTile(photo, label, className = '') {
   return `<img class="${className}" src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async">${label ? `<span>${label}</span>` : ''}`;
 }
 
+function roomSlug(room) {
+  return room.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+function roomGuests(details) {
+  const match = details.sleeps.match(/\d+/);
+  return match ? match[0] : '2';
+}
+
 function roomCard(room, details, photos) {
   const features = details.features.map((fact) => `<li>${fact}</li>`).join('');
   const first = photos[0];
@@ -661,7 +670,9 @@ function roomCard(room, details, photos) {
   const third = photos[2] || first;
   const fourth = photos[3] || first;
   const remaining = Math.max(photos.length - 3, 0);
-  return `<article class="room-listing" data-room-card="${room}" tabindex="0" role="button" aria-label="Open ${room} photos">
+  const slug = roomSlug(room);
+  const availabilityUrl = `book.html?room=${slug}&guests=${roomGuests(details)}&rooms=1`;
+  return `<article class="room-listing" id="${slug}" data-room-card="${room}" tabindex="0" role="button" aria-label="Open ${room} photos">
     <div class="room-preview-grid">
       <button class="room-photo-main" type="button" data-open-room-gallery="${room}" aria-label="Open ${room} photos">${previewTile(first, '')}</button>
       <button class="room-photo-small" type="button" data-open-room-gallery="${room}" aria-label="Open ${room} photos">${previewTile(second, '')}</button>
@@ -670,7 +681,7 @@ function roomCard(room, details, photos) {
     </div>
     <div class="room-listing-body">
       <div><p class="eyebrow">Room type</p><h2>${room}</h2><div class="room-spec-table"><div><span>Sleeps</span><strong>${details.sleeps}</strong></div><div><span>Beds</span><strong>${details.beds}</strong></div><div><span>Bathroom</span><strong>${details.bathroom}</strong></div></div><ul class="room-meta">${features}</ul></div>
-      <div class="room-listing-actions"><button class="btn btn-outline" type="button" data-open-room-gallery="${room}">View photos</button><a class="btn btn-primary" href="book.html">Check availability</a></div>
+      <div class="room-listing-actions"><button class="btn btn-outline" type="button" data-open-room-gallery="${room}">View photos</button><a class="btn btn-primary" href="${availabilityUrl}">Check availability</a></div>
     </div>
   </article>`;
 }
