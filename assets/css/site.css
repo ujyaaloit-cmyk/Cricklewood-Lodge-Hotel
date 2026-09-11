@@ -43,8 +43,8 @@ h3{font-size:1.15rem;margin-bottom:8px}
 .site-header.nav-hidden{transform:translate(-50%,-120%);opacity:0;pointer-events:none}
 .site-header::before,.site-header::after{content:none}
 .nav{height:60px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:0;position:relative}
-.brand{display:grid;place-items:center;font-weight:850;min-width:0;width:190px;height:52px;padding:0 18px;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;transition:transform .26s cubic-bezier(.22,.8,.22,1),filter .26s ease}
-.brand:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.brand{display:grid;place-items:center;font-weight:850;min-width:0;width:188px;height:52px;padding:0 16px;border:1px solid rgba(255,247,232,.2);border-radius:14px;background:linear-gradient(135deg,rgba(7,11,24,.9),rgba(16,26,51,.84));box-shadow:0 12px 30px rgba(var(--shadow),.2),inset 0 1px 0 rgba(255,255,255,.12);backdrop-filter:blur(14px) saturate(1.12);transition:transform .26s cubic-bezier(.22,.8,.22,1),filter .26s ease,box-shadow .26s ease}
+.brand:hover{transform:translateY(-1px);filter:brightness(1.08);box-shadow:0 16px 38px rgba(var(--shadow),.24),inset 0 1px 0 rgba(255,255,255,.14)}
 .brand-logo{display:grid;place-items:center;width:150px;height:36px;flex:none}
 .brand-logo img{width:100%;height:100%;object-fit:contain;object-position:center center;filter:brightness(0) invert(1) sepia(.18) saturate(1.6) hue-rotate(356deg) brightness(1.18) drop-shadow(0 6px 14px rgba(0,0,0,.38))}
 .brand-mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--royal);color:#fff;font-size:.78rem;letter-spacing:.08em;flex:none}
@@ -87,7 +87,7 @@ h3{font-size:1.15rem;margin-bottom:8px}
 .hero-badges span{display:inline-flex;align-items:center;min-height:34px;border:1px solid rgba(255,247,232,.28);border-radius:999px;background:rgba(255,247,232,.12);padding:0 13px;color:rgba(255,247,232,.9);font-size:.78rem;font-weight:900;backdrop-filter:blur(12px)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 
-.booking-panel{position:relative;z-index:5;margin-top:-40px}
+.booking-panel{position:relative;z-index:5;margin-top:34px}
 .booking-card{background:rgba(255,255,255,.95);border:1px solid rgba(255,247,232,.9);box-shadow:0 28px 80px rgba(var(--shadow),.2);border-radius:12px;padding:22px;display:grid;grid-template-columns:.42fr 1.58fr;gap:24px;align-items:end;backdrop-filter:blur(18px)}
 .booking-card h2{font-size:1.8rem;margin-bottom:0}
 .booking-form{display:grid;grid-template-columns:1fr 1fr .8fr .7fr auto;gap:10px;align-items:end}
@@ -323,7 +323,7 @@ h3{font-size:1.15rem;margin-bottom:8px}
   .hero-badges span{min-height:32px;padding:0 11px;font-size:.73rem}
   h1{font-size:3.2rem}
   .container{padding:0 14px}
-  .booking-panel{margin-top:22px}
+  .booking-panel{margin-top:24px}
   .booking-card{padding:18px}
   .booking-form,.facts,.signal-grid,.card-grid,.amenity-grid,.service-grid,.policy-grid,.gallery-grid,.room-gallery,.route-options,.place-grid,.reception-gallery,.home-photo-grid,.home-route-strip,.footer-inner{grid-template-columns:1fr}
   .home-route-strip a{min-height:92px;padding:19px}
