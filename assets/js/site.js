@@ -103,17 +103,8 @@ document.querySelectorAll('.nav-links').forEach((nav) => {
     panel.innerHTML = links.map(([label, href]) => `<a href="${navHref(href)}">${label}</a>`).join('');
     item.appendChild(panel);
 
-    trigger.addEventListener('click', (event) => {
-      event.preventDefault();
-      const open = item.classList.toggle('open');
-      trigger.setAttribute('aria-expanded', String(open));
-      document.querySelectorAll('.nav-menu-item.open').forEach((other) => {
-        if (other !== item) {
-          other.classList.remove('open');
-          const otherTrigger = other.querySelector('[aria-expanded]');
-          if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
-        }
-      });
+    trigger.addEventListener('focus', () => {
+      trigger.setAttribute('aria-expanded', 'true');
     });
   });
 });
