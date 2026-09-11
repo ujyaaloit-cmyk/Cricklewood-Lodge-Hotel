@@ -6,44 +6,12 @@ const checkOut = document.getElementById('checkOut');
 const siteHeader = document.querySelector('.site-header');
 
 const navMenus = {
-  about: [
-    ['About Hotel', 'about.html'],
-    ['Amenities', 'amenities.html'],
-    ['Policies', 'policies.html'],
-    ['Contact', 'contact.html']
-  ],
   rooms: [
-    ['All Rooms', 'rooms.html'],
     ['Single Room', 'rooms.html#single-room'],
     ['Double Room', 'rooms.html#double-room'],
     ['Twin Room', 'rooms.html#twin-room'],
     ['Basic Triple Room', 'rooms.html#basic-triple-room'],
     ['Family Room', 'rooms.html#family-room']
-  ],
-  travel: [
-    ['London Travel', 'travel.html'],
-    ['Event Venues', 'travel.html#event-venues'],
-    ['Famous Landmarks', 'travel.html#famous-landmarks'],
-    ['Museums', 'travel.html#museums'],
-    ['Airports & Rail', 'travel.html#airports-rail']
-  ],
-  'guest-services': [
-    ['Guest Services', 'guest-services.html'],
-    ['Reception Help', 'guest-services.html#reception-help'],
-    ['Extra Towels', 'guest-services.html#reception-help'],
-    ['Iron / Hairdryer', 'guest-services.html#reception-help']
-  ],
-  amenities: [
-    ['Amenities', 'amenities.html'],
-    ['Free WiFi', 'amenities.html#wifi'],
-    ['Family Rooms', 'amenities.html#family-rooms'],
-    ['Policies', 'policies.html']
-  ],
-  location: [
-    ['Location', 'location.html'],
-    ['Google Map', 'location.html#map'],
-    ['Contact', 'contact.html'],
-    ['Book', 'book.html']
   ]
 };
 
@@ -93,6 +61,7 @@ document.querySelectorAll('.nav-links').forEach((nav) => {
     trigger.parentNode.insertBefore(item, trigger);
     item.appendChild(trigger);
     trigger.dataset.hasMenu = 'true';
+    trigger.classList.add('has-options');
     trigger.setAttribute('aria-haspopup', 'true');
     trigger.setAttribute('aria-expanded', 'false');
 
@@ -130,7 +99,7 @@ if (mobileMenu) {
     const navHref = (href) => href.startsWith('../') || href.startsWith('pages/') ? href : `${navPathPrefix}${href}`;
     const sub = document.createElement('div');
     sub.className = 'mobile-sub-links';
-    sub.innerHTML = links.slice(1).map(([label, href]) => `<a href="${navHref(href)}">${label}</a>`).join('');
+    sub.innerHTML = links.map(([label, href]) => `<a href="${navHref(href)}">${label}</a>`).join('');
     trigger.insertAdjacentElement('afterend', sub);
   });
   mobileMenu.addEventListener('click', (event) => {
