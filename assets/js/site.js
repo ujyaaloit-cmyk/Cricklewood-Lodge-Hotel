@@ -25,8 +25,14 @@ if (menuToggle && mobileMenu) {
 }
 
 if (siteHeader) {
+  let lastScrollY = window.scrollY;
   const updateHeader = () => {
-    siteHeader.classList.toggle('scrolled', window.scrollY > 18);
+    const currentScrollY = window.scrollY;
+    const scrollingDown = currentScrollY > lastScrollY;
+    const menuOpen = mobileMenu && mobileMenu.classList.contains('open');
+    siteHeader.classList.toggle('scrolled', currentScrollY > 18);
+    siteHeader.classList.toggle('nav-hidden', scrollingDown && currentScrollY > 120 && !menuOpen);
+    lastScrollY = currentScrollY;
   };
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
