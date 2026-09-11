@@ -37,7 +37,7 @@ h3{font-size:1.15rem;margin-bottom:8px}
 .btn-outline{color:var(--royal);background:transparent;border-color:var(--line)}
 .btn-ghost{color:#fff;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.38);backdrop-filter:blur(10px)}
 
-.site-header{position:fixed;top:18px;left:50%;right:auto;width:min(1180px,calc(100% - 44px));transform:translateX(-50%);z-index:50;background:linear-gradient(135deg,rgba(6,10,23,.88),rgba(16,26,51,.8));border:1px solid rgba(255,247,232,.2);border-radius:22px;box-shadow:0 24px 80px rgba(var(--shadow),.34),inset 0 1px 0 rgba(255,255,255,.1);backdrop-filter:blur(24px) saturate(1.25);overflow:hidden;transition:top .24s ease,box-shadow .24s ease,background .24s ease,width .24s ease}
+.site-header{position:fixed;top:18px;left:50%;right:auto;width:min(1180px,calc(100% - 44px));transform:translateX(-50%);z-index:100;background:linear-gradient(135deg,rgba(6,10,23,.88),rgba(16,26,51,.8));border:1px solid rgba(255,247,232,.2);border-radius:22px;box-shadow:0 24px 80px rgba(var(--shadow),.34),inset 0 1px 0 rgba(255,255,255,.1);backdrop-filter:blur(24px) saturate(1.25);overflow:hidden;transition:top .24s ease,box-shadow .24s ease,background .24s ease,width .24s ease}
 .site-header.scrolled{top:10px;width:min(1080px,calc(100% - 36px));background:rgba(7,11,24,.94);box-shadow:0 18px 52px rgba(var(--shadow),.38),inset 0 1px 0 rgba(255,255,255,.08)}
 .site-header::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(120deg,rgba(255,247,232,.18),rgba(200,155,60,.82),rgba(255,247,232,.12));mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;pointer-events:none}
 .site-header::after{content:"";position:absolute;top:0;bottom:0;left:-35%;width:28%;background:linear-gradient(90deg,transparent,rgba(255,247,232,.14),transparent);transform:skewX(-18deg);animation:navSheen 6.5s ease-in-out infinite;pointer-events:none}
@@ -204,6 +204,10 @@ h3{font-size:1.15rem;margin-bottom:8px}
 .travel-card span:last-child{border-bottom:0;padding-bottom:0}
 .place-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .place p{color:var(--muted);margin:0}
+.place{overflow:hidden}
+.place-photo{display:block;width:calc(100% + 40px);height:168px;margin:-20px -20px 18px;object-fit:cover;border-bottom:1px solid var(--line);transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .35s ease}
+.place:hover .place-photo{transform:scale(1.06);filter:saturate(1.08) contrast(1.03)}
+.london-photo-grid .place{min-height:100%;box-shadow:0 16px 42px rgba(var(--shadow),.08)}
 
 .page-hero{padding:160px 0 64px;background:radial-gradient(circle at 18% 0,rgba(200,155,60,.24),transparent 34%),linear-gradient(135deg,var(--royal-dark),var(--royal) 70%,#18284c);color:#fff}
 .page-hero-compact{padding-bottom:42px}
@@ -269,6 +273,11 @@ h3{font-size:1.15rem;margin-bottom:8px}
   .menu-toggle{display:block}
   .nav{grid-template-columns:auto auto;justify-content:space-between}
   .site-header{border-radius:20px}
+  .mobile-menu{inset:96px 18px auto 18px;width:auto;min-height:0;max-height:calc(100svh - 116px);overflow:auto;padding:12px;background:radial-gradient(circle at 92% 0,rgba(200,155,60,.18),transparent 34%),linear-gradient(180deg,rgba(7,11,24,.96),rgba(16,26,51,.96));border-radius:20px;box-shadow:0 24px 70px rgba(var(--shadow),.36);transform:translateY(-12px) scale(.98);transform-origin:top center}
+  .mobile-menu.open{transform:translateY(0) scale(1)}
+  .mobile-menu a{display:flex;align-items:center;justify-content:space-between;padding:14px 14px;border:1px solid rgba(255,247,232,.1);border-radius:14px;margin-bottom:8px;background:rgba(255,247,232,.06);font:850 1rem var(--body);color:rgba(255,247,232,.9)}
+  .mobile-menu a::after{content:"";width:7px;height:7px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg);opacity:.55}
+  .mobile-menu a.active{background:linear-gradient(135deg,#fffaf0,#d7aa49);color:#101a33}
   .booking-card,.split,.location-grid,.room-layout,.room-listing,.travel-layout{grid-template-columns:1fr}
   .room-summary{position:static}
   .travel-card{position:static}
