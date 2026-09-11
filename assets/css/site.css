@@ -66,15 +66,15 @@ h3{font-size:1.15rem;margin-bottom:8px}
 .mobile-menu a{display:block;padding:15px 0;border-bottom:1px solid var(--line);font:800 1.2rem var(--display)}
 .mobile-menu a.active{color:var(--gold)}
 
-.hero{min-height:760px;position:relative;display:flex;align-items:flex-end;overflow:hidden;background:#070b18}
+.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden;background:#070b18}
 .hero-media,.hero-shade{position:absolute;inset:0}
-.hero-media img{filter:saturate(.98) contrast(1.04);object-position:center 42%;transform:scale(1.04);animation:heroZoom 18s ease-in-out infinite alternate}
-.hero-shade{background:linear-gradient(90deg,rgba(7,11,24,.92),rgba(16,26,51,.54) 50%,rgba(123,31,60,.08)),linear-gradient(0deg,rgba(7,11,24,.72),rgba(7,11,24,0) 52%)}
-.hero-content{position:relative;color:#fff;padding:150px 24px 130px;width:min(1180px,100%);margin:0 auto}
+.hero-media img{filter:saturate(1.06) contrast(1.03) brightness(1.04);object-position:center center;transform:scale(1.02);animation:heroZoom 20s ease-in-out infinite alternate}
+.hero-shade{background:linear-gradient(90deg,rgba(7,11,24,.62),rgba(16,26,51,.24) 43%,rgba(7,11,24,.03) 74%),linear-gradient(0deg,rgba(7,11,24,.56),rgba(7,11,24,.1) 48%,rgba(7,11,24,.12))}
+.hero-content{position:relative;color:#fff;padding:170px 24px 96px;width:min(1180px,100%);margin:0 auto;text-shadow:0 2px 22px rgba(0,0,0,.48)}
 .hero-content p:not(.eyebrow){max-width:620px;color:rgba(255,255,255,.86);font-size:1.08rem}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 
-.booking-panel{position:relative;z-index:5;margin-top:-58px}
+.booking-panel{position:relative;z-index:5;margin-top:28px}
 .booking-card{background:rgba(255,255,255,.92);border:1px solid rgba(255,247,232,.9);box-shadow:0 28px 80px rgba(var(--shadow),.2);border-radius:14px;padding:22px;display:grid;grid-template-columns:.42fr 1.58fr;gap:24px;align-items:end;backdrop-filter:blur(18px)}
 .booking-card h2{font-size:1.8rem;margin-bottom:0}
 .booking-form{display:grid;grid-template-columns:1fr 1fr .8fr .7fr auto;gap:10px;align-items:end}
@@ -240,9 +240,9 @@ h3{font-size:1.15rem;margin-bottom:8px}
 .hotel-chat-form button{height:42px;border:0;border-radius:999px;background:var(--royal);color:#fff;font:900 .86rem var(--body);padding:0 15px;cursor:pointer}
 
 @keyframes heroZoom{
-  0%{transform:scale(1.03) translate3d(0,0,0)}
-  50%{transform:scale(1.11) translate3d(-1.5%,.8%,0)}
-  100%{transform:scale(1.06) translate3d(1%,-.7%,0)}
+  0%{transform:scale(1.02) translate3d(0,0,0)}
+  50%{transform:scale(1.075) translate3d(-1%,.6%,0)}
+  100%{transform:scale(1.04) translate3d(.8%,-.5%,0)}
 }
 
 @keyframes imageBreath{
@@ -275,11 +275,11 @@ h3{font-size:1.15rem;margin-bottom:8px}
   .brand-logo{width:170px;height:48px}
   .brand span:last-child{max-width:170px}
   .nav-actions .btn{display:none}
-  .hero{min-height:690px}
-  .hero-content{padding:116px 18px 90px}
+  .hero{min-height:100svh}
+  .hero-content{padding:124px 18px 82px}
   h1{font-size:3.2rem}
   .container{padding:0 14px}
-  .booking-panel{margin-top:-38px}
+  .booking-panel{margin-top:22px}
   .booking-card{padding:18px}
   .booking-form,.facts,.signal-grid,.card-grid,.amenity-grid,.service-grid,.policy-grid,.gallery-grid,.room-gallery,.route-options,.place-grid,.reception-gallery,.home-photo-grid,.footer-inner{grid-template-columns:1fr}
   .home-photo-grid{grid-auto-rows:auto}
