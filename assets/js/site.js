@@ -3,6 +3,7 @@ const mobileMenu = document.querySelector('[data-mobile-menu]');
 const bookingForm = document.getElementById('bookingForm');
 const checkIn = document.getElementById('checkIn');
 const checkOut = document.getElementById('checkOut');
+const siteHeader = document.querySelector('.site-header');
 
 function localDate(daysFromToday) {
   const date = new Date();
@@ -22,6 +23,22 @@ if (menuToggle && mobileMenu) {
     });
   });
 }
+
+if (siteHeader) {
+  const updateHeader = () => {
+    siteHeader.classList.toggle('scrolled', window.scrollY > 18);
+  };
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+}
+
+document.querySelectorAll('.nav-links a, .mobile-menu a').forEach((link) => {
+  const current = new URL(window.location.href);
+  const target = new URL(link.getAttribute('href'), window.location.href);
+  const currentPage = current.pathname.split('/').pop() || 'index.html';
+  const targetPage = target.pathname.split('/').pop() || 'index.html';
+  if (currentPage === targetPage) link.classList.add('active');
+});
 
 if (checkIn && checkOut) {
   checkIn.min = localDate(0);
@@ -51,3 +68,140 @@ if (bookingForm) {
     window.location.href = url.toString();
   });
 }
+
+const hotelAssistant = {
+  welcome: 'Hi, I can help with Cricklewood Lodge Hotel rooms, check-in, services, travel, Wembley routes and Google Maps directions.',
+  quick: ['Rooms', 'Check-in', 'Wembley', 'Towels and iron', 'Google Maps'],
+  answers: [
+    {
+      keys: ['room', 'single', 'double', 'twin', 'triple', 'family', 'bed'],
+      text: 'The hotel has Single, Double, Twin, Basic Triple and Family room options. Rooms include ensuite bathroom, flat-screen TV and free WiFi. The Rooms page shows the photos by room type.'
+    },
+    {
+      keys: ['check in', 'check-in', 'checkin', 'arrival', 'checkout', 'check out', 'leave'],
+      text: 'Check-in starts from 14:00 and check-out is until 10:30. If you arrive early, ask reception about luggage or what may be possible on the day.'
+    },
+    {
+      keys: ['address', 'map', 'google', 'location', 'directions', 'where'],
+      text: 'The address is 1 Cricklewood Broadway, London NW2 3JX. Use the Location page or Google Maps for live walking, traffic and public transport directions.'
+    },
+    {
+      keys: ['wembley', 'stadium', 'ovo', 'arena', 'event'],
+      text: 'For Wembley Park, Wembley Stadium and OVO Arena Wembley, walk to Kilburn Underground and take the Jubilee line northbound to Wembley Park. The tube section is about 11 minutes, but allow extra time on event days.'
+    },
+    {
+      keys: ['towel', 'iron', 'ironing', 'hairdryer', 'hair dryer', 'reception', 'staff', 'help'],
+      text: 'Reception staff can help with extra towels, an iron and ironing board, a hairdryer, local directions and luggage questions. Ask the team during your stay.'
+    },
+    {
+      keys: ['wifi', 'internet'],
+      text: 'Free WiFi is available at Cricklewood Lodge Hotel.'
+    },
+    {
+      keys: ['parking', 'car'],
+      text: 'Parking can change by availability and local rules. Please contact the hotel before travelling if parking is important for your stay.'
+    },
+    {
+      keys: ['children', 'family', 'kid'],
+      text: 'Children of any age are welcome. Family room options are available for up to 4 guests.'
+    },
+    {
+      keys: ['airport', 'heathrow', 'gatwick', 'luton', 'city airport'],
+      text: 'Heathrow is about 46 minutes by car, depending on traffic. For all airports, check Google Maps or TfL before leaving because routes change with traffic and engineering works.'
+    },
+    {
+      keys: ['kilburn', 'station', 'tube', 'train', 'transport', 'underground', 'rail'],
+      text: 'Kilburn Underground on the Jubilee line and Cricklewood rail station are close to the hotel. Google Maps gives the best live route from the hotel.'
+    },
+    {
+      keys: ['book', 'availability', 'price', 'date', 'reserve'],
+      text: 'Use the Book Now or availability search on the website to check live dates and prices. For special requests, contact the hotel directly.'
+    },
+    {
+      keys: ['phone', 'call', 'contact'],
+      text: 'You can call the hotel on 020 8450 5546, or use the Contact page for the address and location details.'
+    }
+  ]
+};
+
+function assistantAnswer(question) {
+  const clean = question.toLowerCase().replace(/[-_]/g, ' ');
+  const match = hotelAssistant.answers.find((item) => item.keys.some((key) => clean.includes(key)));
+  if (match) return match.text;
+  return 'I can help with rooms, check-in times, WiFi, Wembley travel, Google Maps directions, family stays and guest services. For live prices or very specific requests, please use Book Now or call the hotel.';
+}
+
+function createHotelAssistant() {
+  if (document.querySelector('[data-hotel-chat]')) return;
+
+  const chat = document.createElement('section');
+  chat.className = 'hotel-chat';
+  chat.dataset.hotelChat = 'true';
+  chat.innerHTML = `
+    <button class="hotel-chat-toggle" type="button" aria-label="Open hotel assistant" aria-expanded="false"><span>AI</span></button>
+    <div class="hotel-chat-panel" role="dialog" aria-label="Cricklewood Lodge Hotel assistant">
+      <div class="hotel-chat-head">
+        <div><strong>Hotel Assistant</strong><span>Ask about rooms, travel and services.</span></div>
+        <button class="hotel-chat-close" type="button" aria-label="Close hotel assistant">x</button>
+      </div>
+      <div class="hotel-chat-messages" aria-live="polite"></div>
+      <div class="hotel-chat-quick"></div>
+      <form class="hotel-chat-form">
+        <input type="text" aria-label="Ask the hotel assistant" placeholder="Ask a question..." autocomplete="off">
+        <button type="submit">Ask</button>
+      </form>
+    </div>
+  `;
+
+  const toggle = chat.querySelector('.hotel-chat-toggle');
+  const close = chat.querySelector('.hotel-chat-close');
+  const messages = chat.querySelector('.hotel-chat-messages');
+  const quick = chat.querySelector('.hotel-chat-quick');
+  const form = chat.querySelector('.hotel-chat-form');
+  const input = chat.querySelector('input');
+
+  const addMessage = (text, type = 'bot') => {
+    const message = document.createElement('div');
+    message.className = `chat-message ${type}`;
+    message.textContent = text;
+    messages.appendChild(message);
+    messages.scrollTop = messages.scrollHeight;
+  };
+
+  const ask = (text) => {
+    const question = text.trim();
+    if (!question) return;
+    addMessage(question, 'user');
+    window.setTimeout(() => addMessage(assistantAnswer(question)), 180);
+  };
+
+  hotelAssistant.quick.forEach((label) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = label;
+    button.addEventListener('click', () => ask(label));
+    quick.appendChild(button);
+  });
+
+  toggle.addEventListener('click', () => {
+    const open = chat.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+    if (open && !messages.children.length) addMessage(hotelAssistant.welcome);
+    if (open) input.focus();
+  });
+
+  close.addEventListener('click', () => {
+    chat.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  });
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    ask(input.value);
+    input.value = '';
+  });
+
+  document.body.appendChild(chat);
+}
+
+createHotelAssistant();
