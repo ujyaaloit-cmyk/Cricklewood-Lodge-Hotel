@@ -56,9 +56,6 @@ h3{font-size:1.15rem;margin-bottom:8px}
 .nav-links a:hover::before,.nav-links a.active::before{opacity:1;transform:scale(1)}
 .nav-links a:hover::after,.nav-links a.active::after{opacity:.7;transform:translateX(-50%) scale(1)}
 .nav-actions{display:flex;gap:10px;align-items:center}
-.nav-phone{height:40px;display:inline-flex;align-items:center;border:1px solid rgba(255,247,232,.16);border-radius:999px;padding:0 13px;color:rgba(255,247,232,.86);font-size:.76rem;font-weight:900;letter-spacing:.01em;background:rgba(255,255,255,.05);transition:background .2s ease,color .2s ease,transform .2s ease,border-color .2s ease}
-.nav-phone::before{content:"";width:7px;height:7px;border-radius:50%;background:#ead17c;box-shadow:0 0 0 4px rgba(234,209,124,.14);margin-right:9px}
-.nav-phone:hover{background:rgba(255,247,232,.12);border-color:rgba(234,209,124,.36);color:#fff;transform:translateY(-1px)}
 .site-header .btn-primary{min-height:42px;padding:0 18px;background:linear-gradient(135deg,#fffdf7,#ead17c 54%,#c19133);color:#101a33;border:1px solid rgba(255,247,232,.75);box-shadow:0 10px 26px rgba(200,155,60,.26),inset 0 1px 0 rgba(255,255,255,.58)}
 .site-header .btn-primary:hover{box-shadow:0 15px 36px rgba(200,155,60,.4),inset 0 1px 0 rgba(255,255,255,.58)}
 .menu-toggle{display:none;width:42px;height:42px;border:1px solid rgba(255,247,232,.22);border-radius:12px;background:rgba(255,247,232,.1);color:transparent;font-weight:800;position:relative}
@@ -283,7 +280,6 @@ h3{font-size:1.15rem;margin-bottom:8px}
 
 @media (max-width:1000px){
   .nav-links{display:none}
-  .nav-phone{display:none}
   .menu-toggle{display:block}
   .nav{grid-template-columns:auto auto;justify-content:space-between}
   .site-header{border-radius:14px}
