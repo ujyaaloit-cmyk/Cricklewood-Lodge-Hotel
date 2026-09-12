@@ -72,6 +72,23 @@ document.querySelectorAll('.nav-links').forEach((nav) => {
     panel.innerHTML = links.map(([label, href]) => `<a href="${navHref(href)}">${label}</a>`).join('');
     item.appendChild(panel);
 
+    let closeTimer;
+    const openMenu = () => {
+      window.clearTimeout(closeTimer);
+      item.classList.add('open');
+      trigger.setAttribute('aria-expanded', 'true');
+    };
+    const closeMenu = () => {
+      closeTimer = window.setTimeout(() => {
+        item.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }, 140);
+    };
+
+    item.addEventListener('mouseenter', openMenu);
+    item.addEventListener('mouseleave', closeMenu);
+    item.addEventListener('focusin', openMenu);
+    item.addEventListener('focusout', closeMenu);
     trigger.addEventListener('focus', () => {
       trigger.setAttribute('aria-expanded', 'true');
     });
