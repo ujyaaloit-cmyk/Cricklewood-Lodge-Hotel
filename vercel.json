@@ -2,6 +2,8 @@
   "cleanUrls": true,
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/rooms/book", "destination": "/book/", "permanent": true },
+    { "source": "/rooms/book.html", "destination": "/book/", "permanent": true },
     { "source": "/pages/about.html", "destination": "/about/", "permanent": true },
     { "source": "/pages/amenities.html", "destination": "/amenities/", "permanent": true },
     { "source": "/pages/book.html", "destination": "/book/", "permanent": true },

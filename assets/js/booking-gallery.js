@@ -671,7 +671,7 @@ function roomCard(room, details, photos) {
   const fourth = photos[3] || first;
   const remaining = Math.max(photos.length - 3, 0);
   const slug = roomSlug(room);
-  const availabilityUrl = `book.html?room=${slug}&guests=${roomGuests(details)}&rooms=1`;
+  const availabilityUrl = `/book/?room=${slug}&guests=${roomGuests(details)}&rooms=1`;
   return `<article class="room-listing" id="${slug}" data-room-card="${room}" tabindex="0" role="button" aria-label="Open ${room} photos">
     <div class="room-preview-grid">
       <button class="room-photo-main" type="button" data-open-room-gallery="${room}" aria-label="Open ${room} photos">${previewTile(first, '')}</button>
