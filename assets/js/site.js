@@ -314,5 +314,3 @@ function createHotelAssistant() {
 
   document.body.appendChild(chat);
 }
-
-createHotelAssistant();

@@ -381,3 +381,204 @@ h3{font-size:1.15rem;margin-bottom:8px}
   .chat-message.bot{background:#17213d}
   .menu-toggle,.booking-form input,.booking-form select,.hotel-chat-form input{background:#0b1226;color:var(--ink)}
 }
+
+/* Professional hotel finish */
+:root{
+  --ink:#1f2933;
+  --muted:#5f6b76;
+  --paper:#f6f3ee;
+  --surface:#ffffff;
+  --line:#ded7cd;
+  --royal:#24384a;
+  --royal-dark:#172432;
+  --gold:#9b7a3d;
+  --champagne:#f5efe5;
+  --shadow:31,41,51;
+  --radius:6px;
+  --display:Georgia,"Times New Roman",serif;
+}
+
+body{
+  background:var(--paper);
+  color:var(--ink);
+}
+
+h1{font-size:clamp(2.7rem,6vw,5.25rem);line-height:1.02}
+h2{font-size:clamp(1.75rem,3vw,2.65rem);line-height:1.12}
+.eyebrow{color:var(--gold);letter-spacing:.08em}
+
+.btn{
+  border-radius:4px;
+  min-height:46px;
+  font-weight:750;
+  box-shadow:none;
+}
+.btn-primary,
+.site-header .btn-primary{
+  background:var(--royal);
+  border-color:var(--royal);
+  color:#fff;
+  box-shadow:none;
+}
+.btn-primary:hover,
+.site-header .btn-primary:hover,
+.btn-outline:hover,
+.card:hover,
+.fact:hover,
+.home-route-strip a:hover,
+.place:hover,
+.room-listing:hover{
+  transform:none;
+  box-shadow:none;
+}
+.btn-outline{background:#fff;border-color:var(--line);color:var(--royal)}
+.btn-light{background:#fff;color:var(--royal);border-color:#fff}
+.btn-ghost{background:transparent;border-color:rgba(255,255,255,.55);backdrop-filter:none}
+
+.site-header,
+.site-header.scrolled{
+  top:0;
+  width:100%;
+  border-radius:0;
+  border:0;
+  border-bottom:1px solid rgba(255,255,255,.14);
+  background:rgba(23,36,50,.96);
+  box-shadow:none;
+  backdrop-filter:none;
+}
+.nav{
+  width:min(1180px,100%);
+  margin:0 auto;
+  height:72px;
+  padding:8px 24px;
+}
+.brand{width:190px;height:52px;padding:0;background:transparent}
+.brand::after{content:none}
+.brand-logo{width:166px;height:40px}
+.nav-links{gap:18px;font-size:.88rem;font-weight:650;color:rgba(255,255,255,.88)}
+.nav-links a{padding:8px 0;border-radius:0}
+.nav-links a::before,.nav-links a::after{content:none}
+.nav-links a:hover,.nav-links a.active{color:#fff;transform:none}
+.nav-links a.has-options{padding-right:14px}
+.nav-links a.has-options::after{content:"";display:block;right:0;border-color:currentColor}
+.nav-dropdown{
+  border-radius:4px;
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow:0 16px 40px rgba(var(--shadow),.16);
+}
+.nav-dropdown a{color:var(--ink);border-radius:3px}
+.nav-dropdown a:hover,.nav-dropdown a.active{background:var(--champagne);color:var(--royal)}
+
+.hero{min-height:82vh}
+.hero-media img{
+  animation:none;
+  transform:none;
+  filter:saturate(.96) contrast(1.02) brightness(.9);
+}
+.hero-shade{
+  background:linear-gradient(90deg,rgba(15,24,33,.78),rgba(15,24,33,.48) 48%,rgba(15,24,33,.12));
+}
+.hero-content{
+  padding-top:132px;
+  padding-bottom:78px;
+  text-shadow:0 2px 14px rgba(0,0,0,.32);
+}
+.hero-content h1{max-width:780px}
+.hero-badges span{
+  border-radius:3px;
+  background:rgba(255,255,255,.12);
+  font-weight:700;
+}
+
+.booking-panel{margin-top:-38px}
+.booking-card,
+.fact,
+.home-route-strip a,
+.card,
+.amenity,
+.service,
+.policy,
+.place,
+.room-listing,
+.travel-feature{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:none;
+}
+.booking-card{grid-template-columns:300px 1fr}
+.booking-form button{border-radius:4px;background:var(--royal)}
+
+.facts{margin-top:34px}
+.fact{padding:22px}
+.fact strong{font-size:1.85rem}
+.home-route-strip a::after{content:none}
+
+.signal{
+  background:var(--royal);
+  border-radius:var(--radius);
+  box-shadow:none;
+}
+.section{padding-top:76px}
+.image-frame,
+.reception-gallery img,
+.home-photo-grid img{
+  box-shadow:none;
+}
+.image-frame img,
+.image-frame:hover img,
+.reception-gallery img:hover,
+.home-photo-grid img:hover,
+.card:hover img,
+.room-gallery figure:hover img,
+.modal-gallery figure:hover img,
+.gallery-grid figure:hover img,
+.place:hover .place-photo{
+  animation:none;
+  transform:none;
+  filter:none;
+}
+.card img{height:230px}
+.card-body{padding:20px}
+.place-photo{height:156px}
+
+.page-hero{
+  background:var(--royal);
+  padding-top:140px;
+}
+.page-hero::after{content:none}
+.cta{
+  background:var(--royal);
+  margin-top:84px;
+}
+.footer{
+  background:#162331;
+  box-shadow:none;
+}
+
+.hotel-chat{display:none}
+
+@media (max-width:1000px){
+  .mobile-menu{
+    background:#172432;
+    border-radius:6px;
+    box-shadow:0 18px 44px rgba(var(--shadow),.28);
+    backdrop-filter:none;
+  }
+  .mobile-menu a{
+    background:transparent;
+    border:0;
+    border-bottom:1px solid rgba(255,255,255,.12);
+    border-radius:0;
+    box-shadow:none;
+  }
+  .booking-card{grid-template-columns:1fr}
+}
+
+@media (max-width:680px){
+  .site-header,.site-header.scrolled{top:0;width:100%}
+  .nav{padding:6px 14px}
+  .hero{min-height:760px}
+  .hero-content h1{font-size:2.7rem}
+}
