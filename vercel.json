@@ -10,6 +10,15 @@
     { "source": "/pages/location.html", "destination": "/location/", "permanent": true },
     { "source": "/pages/policies.html", "destination": "/policies/", "permanent": true },
     { "source": "/pages/rooms.html", "destination": "/rooms/", "permanent": true },
-    { "source": "/pages/travel.html", "destination": "/travel/", "permanent": true }
+    { "source": "/pages/travel.html", "destination": "/travel/", "permanent": true },
+    { "source": "/pages/about", "destination": "/about/", "permanent": true },
+    { "source": "/pages/amenities", "destination": "/amenities/", "permanent": true },
+    { "source": "/pages/book", "destination": "/book/", "permanent": true },
+    { "source": "/pages/contact", "destination": "/contact/", "permanent": true },
+    { "source": "/pages/guest-services", "destination": "/guest-services/", "permanent": true },
+    { "source": "/pages/location", "destination": "/location/", "permanent": true },
+    { "source": "/pages/policies", "destination": "/policies/", "permanent": true },
+    { "source": "/pages/rooms", "destination": "/rooms/", "permanent": true },
+    { "source": "/pages/travel", "destination": "/travel/", "permanent": true }
   ]
 }
