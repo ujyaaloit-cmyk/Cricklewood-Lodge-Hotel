@@ -613,8 +613,20 @@ body{
 }
 .site-header.nav-hidden{transform:none;opacity:1;pointer-events:auto}
 .nav{height:78px}
+.brand{
+  width:auto;
+  height:44px;
+  padding:0;
+}
+.brand-logo{
+  width:118px;
+  height:30px;
+}
 .brand-logo img{
   filter:none;
+  width:100%;
+  height:100%;
+  object-fit:contain;
 }
 .nav-links{color:var(--ink);gap:22px;font-weight:650}
 .nav-links a:hover,
@@ -770,6 +782,8 @@ body{
 
 @media (max-width:680px){
   .nav{height:68px}
+  .brand{width:auto;height:40px;padding:0}
+  .brand-logo{width:106px;height:28px}
   .hero{min-height:610px}
   .hero-content{padding:68px 18px 46px}
   .hero-content h1{font-size:2.55rem}
