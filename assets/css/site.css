@@ -801,3 +801,51 @@ body{
   }
   .card img{height:auto;aspect-ratio:4/3}
 }
+
+/* Centered homepage hero and sharper logo sizing */
+.brand-logo{
+  width:148px;
+  height:44px;
+}
+
+.hero{
+  align-items:center;
+}
+
+.hero-media{
+  inset:0;
+}
+
+.hero-shade{
+  background:linear-gradient(180deg,rgba(29,45,58,.64),rgba(29,45,58,.58)),linear-gradient(90deg,rgba(29,45,58,.28),rgba(29,45,58,.14));
+}
+
+.hero-content{
+  display:grid;
+  justify-items:center;
+  text-align:center;
+  padding:122px 24px 86px;
+}
+
+.hero-content h1{
+  max-width:880px;
+}
+
+.hero-content p:not(.eyebrow){
+  max-width:680px;
+}
+
+.hero-actions{
+  justify-content:center;
+}
+
+@media (max-width:680px){
+  .brand-logo{
+    width:128px;
+    height:38px;
+  }
+
+  .hero-content{
+    padding:86px 18px 56px;
+  }
+}
