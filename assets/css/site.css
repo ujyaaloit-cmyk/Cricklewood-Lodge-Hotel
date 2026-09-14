@@ -849,3 +849,135 @@ body{
     padding:86px 18px 56px;
   }
 }
+
+/* Book page */
+.book-hero{
+  padding:132px 0 74px;
+  background:linear-gradient(90deg,rgba(29,45,58,.9),rgba(29,45,58,.7)),url("../images/booking-room-types/property/01-61395759-a-hotel-sign-in-front-of-a-building-at-cricklewood-lodge-h.jpg") center/cover;
+}
+
+.book-hero .container{
+  display:grid;
+  justify-items:center;
+  text-align:center;
+}
+
+.book-hero h1{
+  max-width:900px;
+  font-size:clamp(2.35rem,5vw,4.55rem);
+}
+
+.book-hero p{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.book-section{
+  padding-top:46px;
+}
+
+.book-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.45fr) minmax(300px,.55fr);
+  gap:22px;
+  align-items:stretch;
+}
+
+.book-card{
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:30px;
+  background:#fff;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:24px;
+}
+
+.booking-copy{
+  max-width:720px;
+}
+
+.booking-copy h2{
+  font-family:var(--body);
+  font-size:1.85rem;
+  line-height:1.15;
+  margin-bottom:8px;
+}
+
+.booking-copy p:not(.eyebrow){
+  color:var(--muted);
+  margin-bottom:0;
+}
+
+.book-card .booking-form{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+}
+
+.book-card .booking-form button{
+  grid-column:1/-1;
+  width:100%;
+  height:54px;
+  font-size:1rem;
+}
+
+.book-aside{
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:#fff;
+}
+
+.book-aside img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.book-aside div{
+  display:grid;
+  gap:10px;
+  padding:22px;
+}
+
+.book-aside strong{
+  color:var(--ink);
+  line-height:1.3;
+}
+
+.book-aside span{
+  color:var(--muted);
+  font-size:.94rem;
+}
+
+.book-aside a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  margin-top:6px;
+  border:1px solid var(--royal);
+  border-radius:4px;
+  color:var(--royal);
+  font-weight:800;
+}
+
+@media (max-width:900px){
+  .book-layout{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:680px){
+  .book-hero{
+    padding:92px 0 52px;
+  }
+
+  .book-card{
+    padding:22px 18px;
+  }
+
+  .book-card .booking-form{
+    grid-template-columns:1fr;
+  }
+}
