@@ -1,6 +1,5 @@
 {
   "cleanUrls": true,
-  "trailingSlash": true,
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true },
     { "source": "/pages/about.html", "destination": "/about/", "permanent": true },
@@ -14,14 +13,14 @@
     { "source": "/pages/travel.html", "destination": "/travel/", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/about/", "destination": "/pages/about.html" },
-    { "source": "/amenities/", "destination": "/pages/amenities.html" },
-    { "source": "/book/", "destination": "/pages/book.html" },
-    { "source": "/contact/", "destination": "/pages/contact.html" },
-    { "source": "/guest-services/", "destination": "/pages/guest-services.html" },
-    { "source": "/location/", "destination": "/pages/location.html" },
-    { "source": "/policies/", "destination": "/pages/policies.html" },
-    { "source": "/rooms/", "destination": "/pages/rooms.html" },
-    { "source": "/travel/", "destination": "/pages/travel.html" }
+    { "source": "/about", "destination": "/pages/about.html" },
+    { "source": "/amenities", "destination": "/pages/amenities.html" },
+    { "source": "/book", "destination": "/pages/book.html" },
+    { "source": "/contact", "destination": "/pages/contact.html" },
+    { "source": "/guest-services", "destination": "/pages/guest-services.html" },
+    { "source": "/location", "destination": "/pages/location.html" },
+    { "source": "/policies", "destination": "/pages/policies.html" },
+    { "source": "/rooms", "destination": "/pages/rooms.html" },
+    { "source": "/travel", "destination": "/pages/travel.html" }
   ]
 }
