@@ -7,13 +7,18 @@ const siteHeader = document.querySelector('.site-header');
 
 const navMenus = {
   rooms: [
-    ['Single Room', 'rooms.html#single-room'],
-    ['Double Room', 'rooms.html#double-room'],
-    ['Twin Room', 'rooms.html#twin-room'],
-    ['Basic Triple Room', 'rooms.html#basic-triple-room'],
-    ['Family Room', 'rooms.html#family-room']
+    ['Single Room', '/rooms/#single-room'],
+    ['Double Room', '/rooms/#double-room'],
+    ['Twin Room', '/rooms/#twin-room'],
+    ['Basic Triple Room', '/rooms/#basic-triple-room'],
+    ['Family Room', '/rooms/#family-room']
   ]
 };
+
+function matchesRoute(href, route) {
+  const path = href.split('#')[0].replace(/\/+$/, '');
+  return path === `/${route}` || path === `${route}.html` || path === `pages/${route}.html` || path === `../pages/${route}.html`;
+}
 
 function localDate(daysFromToday) {
   const date = new Date();
@@ -52,7 +57,7 @@ document.querySelectorAll('.nav-links').forEach((nav) => {
   Object.entries(navMenus).forEach(([key, links]) => {
     const trigger = [...nav.querySelectorAll('a')].find((link) => {
       const href = link.getAttribute('href') || '';
-      return href.endsWith(`${key}.html`);
+      return matchesRoute(href, key);
     });
     if (!trigger || trigger.dataset.hasMenu) return;
 
@@ -65,11 +70,9 @@ document.querySelectorAll('.nav-links').forEach((nav) => {
     trigger.setAttribute('aria-haspopup', 'true');
     trigger.setAttribute('aria-expanded', 'false');
 
-    const navPathPrefix = trigger.getAttribute('href').includes('/') ? 'pages/' : '';
-    const navHref = (href) => href.startsWith('../') || href.startsWith('pages/') ? href : `${navPathPrefix}${href}`;
     const panel = document.createElement('span');
     panel.className = 'nav-dropdown';
-    panel.innerHTML = links.map(([label, href]) => `<a href="${navHref(href)}">${label}</a>`).join('');
+    panel.innerHTML = links.map(([label, href]) => `<a href="${href}">${label}</a>`).join('');
     item.appendChild(panel);
 
     let closeTimer;
@@ -108,15 +111,13 @@ if (mobileMenu) {
   Object.entries(navMenus).forEach(([key, links]) => {
     const trigger = [...mobileMenu.querySelectorAll('a')].find((link) => {
       const href = link.getAttribute('href') || '';
-      return href.endsWith(`${key}.html`);
+      return matchesRoute(href, key);
     });
     if (!trigger || trigger.dataset.mobileMenuAdded) return;
     trigger.dataset.mobileMenuAdded = 'true';
-    const navPathPrefix = trigger.getAttribute('href').includes('/') ? 'pages/' : '';
-    const navHref = (href) => href.startsWith('../') || href.startsWith('pages/') ? href : `${navPathPrefix}${href}`;
     const sub = document.createElement('div');
     sub.className = 'mobile-sub-links';
-    sub.innerHTML = links.map(([label, href]) => `<a href="${navHref(href)}">${label}</a>`).join('');
+    sub.innerHTML = links.map(([label, href]) => `<a href="${href}">${label}</a>`).join('');
     trigger.insertAdjacentElement('afterend', sub);
   });
   mobileMenu.addEventListener('click', (event) => {
@@ -129,9 +130,8 @@ if (mobileMenu) {
 document.querySelectorAll('.nav-links a, .mobile-menu a').forEach((link) => {
   const current = new URL(window.location.href);
   const target = new URL(link.getAttribute('href'), window.location.href);
-  const currentPage = current.pathname.split('/').pop() || 'index.html';
-  const targetPage = target.pathname.split('/').pop() || 'index.html';
-  if (currentPage === targetPage && (!target.hash || current.hash === target.hash)) link.classList.add('active');
+  const cleanPath = (pathname) => pathname.replace(/\/index\.html$/, '/').replace(/\/pages\/([^/]+)\.html$/, '/$1/').replace(/\/+$/, '/') || '/';
+  if (cleanPath(current.pathname) === cleanPath(target.pathname) && (!target.hash || current.hash === target.hash)) link.classList.add('active');
 });
 
 if (checkIn && checkOut) {

@@ -1,0 +1,19 @@
+/index.html /
+/pages/about.html /about/ 301
+/pages/amenities.html /amenities/ 301
+/pages/book.html /book/ 301
+/pages/contact.html /contact/ 301
+/pages/guest-services.html /guest-services/ 301
+/pages/location.html /location/ 301
+/pages/policies.html /policies/ 301
+/pages/rooms.html /rooms/ 301
+/pages/travel.html /travel/ 301
+/about/ /pages/about.html 200
+/amenities/ /pages/amenities.html 200
+/book/ /pages/book.html 200
+/contact/ /pages/contact.html 200
+/guest-services/ /pages/guest-services.html 200
+/location/ /pages/location.html 200
+/policies/ /pages/policies.html 200
+/rooms/ /pages/rooms.html 200
+/travel/ /pages/travel.html 200

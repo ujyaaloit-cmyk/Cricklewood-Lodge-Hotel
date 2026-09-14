@@ -1,0 +1,24 @@
+RewriteEngine On
+
+DirectoryIndex index.html
+
+RedirectMatch 301 ^/index\.html$ /
+RedirectMatch 301 ^/pages/about\.html$ /about/
+RedirectMatch 301 ^/pages/amenities\.html$ /amenities/
+RedirectMatch 301 ^/pages/book\.html$ /book/
+RedirectMatch 301 ^/pages/contact\.html$ /contact/
+RedirectMatch 301 ^/pages/guest-services\.html$ /guest-services/
+RedirectMatch 301 ^/pages/location\.html$ /location/
+RedirectMatch 301 ^/pages/policies\.html$ /policies/
+RedirectMatch 301 ^/pages/rooms\.html$ /rooms/
+RedirectMatch 301 ^/pages/travel\.html$ /travel/
+
+RewriteRule ^about/?$ pages/about.html [L]
+RewriteRule ^amenities/?$ pages/amenities.html [L]
+RewriteRule ^book/?$ pages/book.html [L]
+RewriteRule ^contact/?$ pages/contact.html [L]
+RewriteRule ^guest-services/?$ pages/guest-services.html [L]
+RewriteRule ^location/?$ pages/location.html [L]
+RewriteRule ^policies/?$ pages/policies.html [L]
+RewriteRule ^rooms/?$ pages/rooms.html [L]
+RewriteRule ^travel/?$ pages/travel.html [L]
