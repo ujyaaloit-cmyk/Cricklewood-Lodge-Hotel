@@ -1126,3 +1126,132 @@ body{
 .mobile-book{
   background:#101a33;
 }
+
+/* More natural, established-hotel finish */
+.hero{
+  min-height:min(760px,86svh);
+}
+
+.hero-media img{
+  animation:none;
+  transform:none;
+  filter:saturate(.96) contrast(1.02) brightness(.94);
+}
+
+.hero-shade{
+  background:linear-gradient(90deg,rgba(7,11,24,.78),rgba(16,26,51,.38) 58%,rgba(7,11,24,.08)),linear-gradient(0deg,rgba(7,11,24,.5),transparent 62%);
+}
+
+.hero-badges{
+  gap:7px;
+}
+
+.hero-badges span{
+  min-height:31px;
+  border-radius:4px;
+  background:rgba(7,11,24,.28);
+  padding:0 11px;
+  font-size:.75rem;
+}
+
+.booking-panel{
+  margin-top:24px;
+}
+
+.booking-card{
+  border-radius:6px;
+  box-shadow:0 12px 28px rgba(var(--shadow),.09);
+}
+
+.facts{
+  margin-top:30px;
+}
+
+.fact{
+  box-shadow:none;
+}
+
+.fact:hover{
+  transform:none;
+  box-shadow:none;
+}
+
+.section{
+  padding-top:68px;
+}
+
+.image-frame,
+.reception-gallery img,
+.home-photo-grid img,
+.room-gallery figure{
+  box-shadow:none;
+}
+
+.image-frame img,
+.reception-gallery img,
+.home-photo-grid img,
+.card img,
+.room-gallery figure img,
+.modal-gallery figure img,
+.gallery-grid figure img{
+  animation:none;
+}
+
+.image-frame:hover img,
+.reception-gallery img:hover,
+.home-photo-grid img:hover,
+.card:hover img,
+.room-gallery figure:hover img,
+.modal-gallery figure:hover img,
+.gallery-grid figure:hover img{
+  transform:scale(1.03);
+}
+
+.card,
+.home-route-strip a,
+.room-listing,
+.amenity,
+.service,
+.policy,
+.place{
+  box-shadow:none;
+}
+
+.card:hover,
+.home-route-strip a:hover,
+.room-listing:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 22px rgba(var(--shadow),.09);
+}
+
+.signal{
+  background:#315f69;
+  box-shadow:none;
+}
+
+.page-hero{
+  background:#315f69;
+}
+
+.page-hero::after{
+  background:var(--gold);
+  opacity:.7;
+}
+
+.cta{
+  margin-top:76px;
+}
+
+@media (max-width:680px){
+  .hero{
+    min-height:650px;
+  }
+
+  .booking-panel{
+    margin-top:20px;
+  }
+
+  .section{
+    padding-top:56px;
+  }
+}
