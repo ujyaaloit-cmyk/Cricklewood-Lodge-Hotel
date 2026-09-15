@@ -1127,6 +1127,12 @@ body{
   background:#101a33;
 }
 
+.cta{
+  background:transparent;
+  border:0;
+  padding:44px 24px 18px;
+}
+
 /* Final footer direction */
 .footer{
   margin-top:70px;
