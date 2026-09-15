@@ -1127,6 +1127,75 @@ body{
   background:#101a33;
 }
 
+/* Final footer direction */
+.footer{
+  margin-top:70px;
+  padding:48px 24px 20px;
+  background:#f1eee7;
+  color:var(--ink);
+  border-top:1px solid var(--line);
+}
+
+.footer-inner{
+  grid-template-columns:minmax(0,1.6fr) minmax(130px,.7fr) minmax(130px,.7fr);
+  gap:42px;
+  padding-bottom:28px;
+  border-bottom:1px solid #d5d0c5;
+}
+
+.footer-logo{
+  width:194px;
+  margin-bottom:14px;
+}
+
+.footer p{
+  color:#697372;
+  margin-bottom:6px;
+}
+
+.footer p:first-of-type{
+  color:var(--ink);
+}
+
+.footer p a{
+  color:var(--royal);
+  font-weight:700;
+}
+
+.footer-links strong{
+  color:var(--gold);
+}
+
+.footer-links a{
+  color:#506267;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible{
+  color:var(--royal);
+}
+
+.footer-bottom{
+  color:#7b8583;
+  padding-top:14px;
+}
+
+.footer-bottom a{
+  color:var(--royal);
+}
+
+@media (max-width:680px){
+  .footer{
+    margin-top:54px;
+    padding:36px 18px 16px;
+  }
+
+  .footer-inner{
+    gap:24px;
+    padding-bottom:22px;
+  }
+}
+
 /* More natural, established-hotel finish */
 .hero{
   min-height:min(760px,86svh);
