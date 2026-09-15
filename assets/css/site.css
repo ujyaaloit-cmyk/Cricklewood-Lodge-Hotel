@@ -1176,6 +1176,14 @@ body{
   transform:translateY(-1px);
 }
 
+.page-hero{
+  padding-top:118px;
+}
+
+.book-hero{
+  padding-top:118px;
+}
+
 @media (max-width:680px){
   .footer-lead{
     display:grid;
@@ -1187,6 +1195,11 @@ body{
 
   .footer-action{
     width:max-content;
+  }
+
+  .page-hero,
+  .book-hero{
+    padding-top:92px;
   }
 }
 
