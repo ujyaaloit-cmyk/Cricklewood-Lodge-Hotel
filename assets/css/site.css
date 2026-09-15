@@ -1076,6 +1076,89 @@ body{
   }
 }
 
+/* Lighter hotel palette */
+:root{
+  --ink:#26383c;
+  --muted:#667477;
+  --paper:#f7f4ee;
+  --surface:#fffefa;
+  --line:#ddd8ce;
+  --royal:#315f69;
+  --royal-dark:#244b54;
+  --gold:#b87838;
+  --champagne:#fff8e9;
+}
+
+body{
+  background:var(--paper);
+}
+
+.site-header,
+.site-header.scrolled{
+  background:rgba(49,95,105,.97);
+  border-color:rgba(255,255,255,.3);
+  box-shadow:0 10px 28px rgba(35,67,74,.18);
+}
+
+.site-header.scrolled{
+  background:rgba(36,75,84,.98);
+}
+
+.nav-links{
+  color:rgba(255,255,255,.92);
+}
+
+.nav-links a::before{
+  background:rgba(255,255,255,.16);
+}
+
+.site-header .btn-primary{
+  background:#d49a52;
+  border-color:#e3b473;
+  color:#fff;
+}
+
+.site-header .btn-primary:hover{
+  background:#e0aa66;
+}
+
+.page-hero{
+  background:linear-gradient(135deg,#315f69,#477985 72%,#5b8790);
+}
+
+.page-hero::after{
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.7),transparent);
+}
+
+.book-hero{
+  background:linear-gradient(90deg,rgba(36,75,84,.78),rgba(49,95,105,.5)),url("../images/booking-room-types/property/01-61395759-a-hotel-sign-in-front-of-a-building-at-cricklewood-lodge-h.jpg") center/cover;
+}
+
+.signal{
+  background:var(--royal);
+}
+
+.footer{
+  background:#315f69;
+  border-top-color:#e0aa66;
+}
+
+.footer-links strong{
+  color:#f2c681;
+}
+
+.mobile-menu{
+  background:linear-gradient(145deg,rgba(49,95,105,.98),rgba(71,121,133,.98));
+}
+
+.mobile-menu a{
+  background:rgba(255,255,255,.1);
+}
+
+.mobile-book{
+  background:var(--royal);
+}
+
 .hero-content .eyebrow{
   color:#f6ce78;
   text-shadow:0 2px 14px rgba(0,0,0,.6);
