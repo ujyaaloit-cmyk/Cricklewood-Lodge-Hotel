@@ -1075,3 +1075,8 @@ body{
     gap:6px;
   }
 }
+
+.hero-content .eyebrow{
+  color:#f6ce78;
+  text-shadow:0 2px 14px rgba(0,0,0,.6);
+}
