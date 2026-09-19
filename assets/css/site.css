@@ -1695,14 +1695,19 @@ body{
 
 .footer-action{
   min-height:42px;
+  padding:0 20px;
   border-radius:4px;
   border-color:#315f69;
-  color:#315f69;
+  background:#315f69;
+  color:#fff;
+  box-shadow:0 8px 18px rgba(var(--shadow),.12);
 }
 
 .footer-action:hover,
 .footer-action:focus-visible{
-  background:#315f69;
+  background:#244b54;
+  border-color:#244b54;
+  color:#fff;
 }
 
 .footer-inner{
