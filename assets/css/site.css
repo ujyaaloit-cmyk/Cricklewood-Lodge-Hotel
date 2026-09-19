@@ -1443,3 +1443,401 @@ body{
     padding-top:56px;
   }
 }
+
+/* Human-made hotel header and footer pass */
+.site-header,
+.site-header.scrolled{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  width:100%;
+  transform:none;
+  border:0;
+  border-radius:0;
+  background:rgba(255,253,248,.97);
+  box-shadow:0 1px 0 rgba(49,95,105,.14),0 10px 30px rgba(var(--shadow),.08);
+  backdrop-filter:saturate(1.1) blur(12px);
+}
+
+.site-header.nav-hidden{
+  transform:none;
+  opacity:1;
+  pointer-events:auto;
+}
+
+.nav{
+  width:min(1180px,100%);
+  height:74px;
+  margin:0 auto;
+  padding:0 24px;
+  gap:22px;
+}
+
+.brand{
+  width:210px;
+  height:58px;
+  padding:0;
+}
+
+.brand::after{
+  right:-13px;
+  top:14px;
+  bottom:14px;
+  background:#d8d2c6;
+}
+
+.brand-logo{
+  width:196px;
+  height:48px;
+}
+
+.brand-logo img{
+  filter:none;
+  object-position:left center;
+}
+
+.nav-links{
+  gap:2px;
+  color:#294f57;
+  font-size:.82rem;
+  font-weight:800;
+}
+
+.nav-links a{
+  border-radius:4px;
+  padding:9px 10px;
+}
+
+.nav-links a::before,
+.nav-links a::after{
+  content:none;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+  color:#163b42;
+  background:#f0ece2;
+  transform:none;
+}
+
+.nav-links a.has-options{
+  padding-right:20px;
+}
+
+.nav-links a.has-options::after{
+  content:"";
+  right:8px;
+  width:6px;
+  height:6px;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform:translateY(-62%) rotate(45deg);
+  opacity:.55;
+}
+
+.nav-dropdown{
+  top:calc(100% + 10px);
+  min-width:232px;
+  padding:8px;
+  border:1px solid #ded7cb;
+  border-radius:6px;
+  background:#fffdf8;
+  box-shadow:0 18px 36px rgba(var(--shadow),.14);
+}
+
+.nav-dropdown a{
+  color:#294f57;
+  border-radius:4px;
+}
+
+.nav-dropdown a:hover,
+.nav-dropdown a.active{
+  background:#f0ece2;
+  color:#163b42;
+}
+
+.site-header .btn-primary{
+  min-height:42px;
+  border-radius:4px;
+  background:#315f69;
+  color:#fff;
+  border-color:#315f69;
+  box-shadow:none;
+}
+
+.site-header .btn-primary:hover,
+.site-header .btn-primary:focus-visible{
+  background:#244b54;
+  border-color:#244b54;
+  box-shadow:none;
+}
+
+.site-header .menu-toggle{
+  width:42px;
+  height:42px;
+  border-radius:4px;
+  border-color:#d8d2c6;
+  background:#fffdf8;
+  box-shadow:none;
+}
+
+.site-header .menu-toggle::before,
+.site-header .menu-toggle::after{
+  background:#244b54;
+}
+
+.mobile-menu{
+  top:84px;
+  right:18px;
+  left:auto;
+  width:min(360px,calc(100% - 36px));
+  min-height:0;
+  max-height:calc(100svh - 102px);
+  overflow:auto;
+  padding:10px;
+  border:1px solid #ded7cb;
+  border-radius:6px;
+  background:#fffdf8;
+  box-shadow:0 18px 46px rgba(var(--shadow),.18);
+  backdrop-filter:none;
+  transform:translateY(-8px);
+}
+
+.mobile-menu.open{
+  transform:translateY(0);
+}
+
+.mobile-menu a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:44px;
+  margin:0;
+  padding:10px 12px;
+  border:0;
+  border-bottom:1px solid #eee7dc;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  color:#294f57;
+  font:800 .96rem var(--body);
+}
+
+.mobile-menu a:last-child{
+  border-bottom:0;
+}
+
+.mobile-menu a.active{
+  background:#f0ece2;
+  color:#163b42;
+}
+
+.mobile-sub-links{
+  grid-template-columns:1fr;
+  gap:0;
+  margin:0;
+  padding:4px 0 8px 18px;
+  border-bottom:1px solid #eee7dc;
+}
+
+.mobile-sub-links a{
+  min-height:34px;
+  padding:7px 10px;
+  border:0;
+  color:#5d6f72;
+  font-size:.88rem;
+  font-weight:700;
+}
+
+.mobile-menu > a::after{
+  display:none;
+}
+
+.mobile-menu > a[href="/rooms/"]::after{
+  display:block;
+  content:"";
+  width:7px;
+  height:7px;
+  border-top:2px solid currentColor;
+  border-right:2px solid currentColor;
+  transform:rotate(45deg);
+  opacity:.5;
+}
+
+.hero-content{
+  padding-top:146px;
+}
+
+.page-hero,
+.book-hero{
+  padding-top:132px;
+}
+
+.footer{
+  margin-top:72px;
+  padding:0 24px 30px;
+  background:#f7f4ee;
+  color:#26383c;
+  border-top:1px solid #ddd8ce;
+}
+
+.footer-lead{
+  margin-bottom:0;
+  padding:28px 0;
+  align-items:center;
+}
+
+.footer-lead h2{
+  color:#26383c;
+  font-size:clamp(1.65rem,3vw,2.35rem);
+}
+
+.footer-action{
+  min-height:42px;
+  border-radius:4px;
+  border-color:#315f69;
+  color:#315f69;
+}
+
+.footer-action:hover,
+.footer-action:focus-visible{
+  background:#315f69;
+}
+
+.footer-inner{
+  padding:30px 0 0;
+  border-bottom:0;
+  grid-template-columns:minmax(260px,1.45fr) minmax(140px,.65fr) minmax(140px,.65fr);
+  gap:34px;
+}
+
+.footer-logo{
+  width:186px;
+  margin-bottom:16px;
+}
+
+.footer p{
+  max-width:440px;
+  color:#5f6c6e;
+  font-size:.95rem;
+}
+
+.footer p:first-of-type{
+  color:#26383c;
+  font-weight:700;
+}
+
+.footer p a{
+  color:#315f69;
+  font-weight:800;
+}
+
+.footer-links{
+  gap:8px;
+  padding-top:4px;
+}
+
+.footer-links strong{
+  color:#315f69;
+  letter-spacing:.08em;
+}
+
+.footer-links a{
+  color:#536568;
+  font-weight:700;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible{
+  color:#b87838;
+}
+
+@media (max-width:1000px){
+  .nav{
+    grid-template-columns:auto auto;
+    justify-content:space-between;
+  }
+
+  .brand{
+    width:190px;
+  }
+
+  .brand-logo{
+    width:176px;
+  }
+
+  .nav-actions{
+    padding:0;
+  }
+}
+
+@media (max-width:680px){
+  .site-header,
+  .site-header.scrolled{
+    top:0;
+    width:100%;
+  }
+
+  .nav{
+    height:66px;
+    padding:0 16px;
+  }
+
+  .brand{
+    width:158px;
+    height:52px;
+  }
+
+  .brand::after{
+    content:none;
+  }
+
+  .brand-logo{
+    width:152px;
+    height:42px;
+  }
+
+  .mobile-menu{
+    top:74px;
+    left:12px;
+    right:12px;
+    width:auto;
+    max-height:calc(100svh - 92px);
+  }
+
+  .hero-content{
+    padding-top:118px;
+  }
+
+  .page-hero,
+  .book-hero{
+    padding-top:96px;
+  }
+
+  .footer{
+    margin-top:50px;
+    padding:0 18px 24px;
+  }
+
+  .footer-lead{
+    display:grid;
+    gap:16px;
+    padding:24px 0;
+  }
+
+  .footer-action{
+    width:max-content;
+    max-width:100%;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr;
+    gap:22px;
+    padding-top:24px;
+  }
+
+  .footer-logo{
+    width:174px;
+  }
+}
