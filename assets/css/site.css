@@ -1899,3 +1899,423 @@ body{
     max-height:32px;
   }
 }
+
+/* Whole-site polish pass for inner pages */
+body{
+  background:#f7f4ee;
+}
+
+main{
+  overflow:hidden;
+}
+
+.page-hero,
+.book-hero{
+  position:relative;
+  overflow:hidden;
+  background:#315f69;
+  color:#fff;
+  padding:136px 0 76px;
+}
+
+.page-hero::before,
+.book-hero::before{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:6px;
+  background:linear-gradient(90deg,#b87838,#f0c172 42%,#315f69);
+  opacity:.95;
+  z-index:0;
+}
+
+.page-hero::after,
+.book-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(110deg,rgba(255,253,248,.08),transparent 42%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.page-hero .container,
+.book-hero .container{
+  position:relative;
+  z-index:1;
+}
+
+.page-hero h1,
+.book-hero h1{
+  max-width:940px;
+  font-size:clamp(2.55rem,5.8vw,4.9rem);
+  line-height:.98;
+  margin-bottom:16px;
+}
+
+.page-hero p,
+.book-hero p{
+  max-width:720px;
+  color:rgba(255,255,255,.86);
+  font-size:1.04rem;
+}
+
+.page-hero .eyebrow,
+.book-hero .eyebrow{
+  color:#f0c172;
+}
+
+.section{
+  padding-top:76px;
+}
+
+.section-head{
+  margin-bottom:28px;
+}
+
+.section-head .eyebrow,
+.copy .eyebrow,
+.booking-copy .eyebrow{
+  color:#b87838;
+}
+
+.section-head h2,
+.copy h2,
+.booking-copy h2{
+  color:#26383c;
+}
+
+.copy p,
+.travel-feature p,
+.place p,
+.amenity p,
+.service p,
+.policy p{
+  color:#5f6c6e;
+}
+
+.split{
+  gap:54px;
+}
+
+.image-frame,
+.reception-gallery img,
+.home-photo-grid img,
+.card,
+.room-listing,
+.amenity,
+.service,
+.policy,
+.place,
+.travel-feature,
+.map-card,
+.book-card,
+.book-aside,
+.info-card{
+  border:1px solid #ddd8ce;
+  border-radius:8px;
+  box-shadow:0 14px 34px rgba(var(--shadow),.08);
+}
+
+.image-frame,
+.reception-gallery img,
+.home-photo-grid img,
+.card,
+.room-listing,
+.amenity,
+.service,
+.policy,
+.place,
+.travel-feature,
+.book-card,
+.book-aside{
+  background:#fffdf8;
+}
+
+.image-frame{
+  height:440px;
+}
+
+.card,
+.room-listing,
+.amenity,
+.service,
+.policy,
+.place,
+.home-route-strip a,
+.route-options article{
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+
+.card:hover,
+.room-listing:hover,
+.place:hover,
+.home-route-strip a:hover{
+  transform:translateY(-3px);
+  border-color:#cfb78d;
+  box-shadow:0 18px 42px rgba(var(--shadow),.12);
+}
+
+.card img,
+.place-photo,
+.room-gallery img,
+.modal-gallery img,
+.gallery-grid img,
+.room-preview-grid img{
+  filter:saturate(.98) contrast(1.02);
+}
+
+.card-body{
+  padding:22px;
+}
+
+.card-body h3,
+.place strong,
+.route-options strong,
+.amenity h3,
+.service span,
+.policy span{
+  color:#26383c;
+}
+
+.card-body span,
+.card-body a{
+  color:#315f69;
+}
+
+.facts,
+.signal-grid,
+.card-grid,
+.amenity-grid,
+.service-grid,
+.policy-grid,
+.place-grid{
+  gap:18px;
+}
+
+.fact,
+.signal{
+  border-radius:8px;
+}
+
+.fact{
+  border:1px solid #ddd8ce;
+  background:#fffdf8;
+  box-shadow:0 10px 24px rgba(var(--shadow),.06);
+}
+
+.signal{
+  background:#315f69;
+  border:1px solid rgba(255,255,255,.16);
+}
+
+.booking-card,
+.book-card{
+  background:#fffdf8;
+  border-color:#ddd8ce;
+  box-shadow:0 16px 38px rgba(var(--shadow),.09);
+}
+
+.booking-form label{
+  color:#5f6c6e;
+}
+
+.booking-form input,
+.booking-form select{
+  border-color:#d8d2c6;
+  background:#fff;
+  border-radius:4px;
+  color:#26383c;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.hotel-chat-form input:focus{
+  outline:2px solid rgba(184,120,56,.28);
+  outline-offset:2px;
+  border-color:#b87838;
+}
+
+.booking-form button,
+.book-card .booking-form button{
+  border-radius:4px;
+  background:#315f69;
+  color:#fff;
+  box-shadow:none;
+}
+
+.booking-form button:hover,
+.book-card .booking-form button:hover{
+  background:#244b54;
+}
+
+.book-layout{
+  gap:24px;
+}
+
+.book-aside{
+  box-shadow:0 16px 38px rgba(var(--shadow),.09);
+}
+
+.book-aside a{
+  background:#315f69;
+  color:#fff;
+  border-color:#315f69;
+}
+
+.book-aside a:hover{
+  background:#244b54;
+  border-color:#244b54;
+}
+
+.travel-feature{
+  padding:30px;
+}
+
+.route-options article{
+  background:#f3efe6;
+  border:1px solid #ddd8ce;
+  border-radius:8px;
+}
+
+.travel-card,
+.info-card{
+  background:#315f69;
+  color:#fff;
+  box-shadow:none;
+}
+
+.travel-card span,
+.info-card span{
+  color:rgba(255,255,255,.82);
+}
+
+.map-card{
+  box-shadow:0 16px 38px rgba(var(--shadow),.09);
+}
+
+.room-listings{
+  gap:22px;
+}
+
+.room-listing{
+  padding:18px;
+  background:#fffdf8;
+}
+
+.room-preview-grid button{
+  border-radius:6px;
+}
+
+.room-spec-table{
+  border-color:#ddd8ce;
+  background:#f8f5ee;
+}
+
+.room-spec-table div{
+  border-bottom-color:#ddd8ce;
+}
+
+.show-more,
+.modal-close{
+  border-radius:4px;
+}
+
+.show-more{
+  border-color:#315f69;
+  color:#315f69;
+}
+
+.show-more:hover{
+  background:#315f69;
+}
+
+.gallery-modal-panel{
+  background:#f7f4ee;
+  border-radius:8px;
+}
+
+.gallery-modal-head{
+  background:#fffdf8;
+}
+
+.mobile-book{
+  border-radius:4px;
+  background:#315f69;
+}
+
+@media (max-width:1000px){
+  .page-hero,
+  .book-hero{
+    padding:116px 0 62px;
+  }
+
+  .split{
+    gap:30px;
+  }
+
+  .image-frame{
+    height:auto;
+    aspect-ratio:4/3;
+  }
+
+  .room-listing{
+    gap:18px;
+  }
+}
+
+@media (max-width:680px){
+  .page-hero,
+  .book-hero{
+    padding:98px 0 46px;
+  }
+
+  .page-hero h1,
+  .book-hero h1{
+    font-size:2.35rem;
+    line-height:1.02;
+  }
+
+  .page-hero p,
+  .book-hero p{
+    font-size:.98rem;
+  }
+
+  .section{
+    padding-top:52px;
+  }
+
+  .container{
+    padding-left:18px;
+    padding-right:18px;
+  }
+
+  .booking-card,
+  .book-card,
+  .travel-feature,
+  .amenity,
+  .service,
+  .policy{
+    padding:20px;
+  }
+
+  .card-body{
+    padding:18px;
+  }
+
+  .room-listing{
+    padding:12px;
+  }
+
+  .room-preview-grid{
+    grid-template-rows:78px 78px 78px;
+  }
+
+  .home-photo-grid,
+  .reception-gallery,
+  .gallery-grid,
+  .room-gallery,
+  .modal-gallery{
+    gap:10px;
+  }
+}
