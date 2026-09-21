@@ -3849,3 +3849,236 @@ body::before{
 .footer p{
   color:#5f6472;
 }
+
+/* Bright unified photo-forward theme */
+:root{
+  --ink:#18243a;
+  --muted:#586274;
+  --paper:#f5f8ff;
+  --surface:#ffffff;
+  --line:#d7e2f2;
+  --royal:#1f5fb8;
+  --royal-dark:#123a78;
+  --gold:#f0b23d;
+  --wine:#f05f4f;
+  --blue:#4b8fe8;
+  --champagne:#fff4db;
+}
+
+body{
+  background:#f5f8ff;
+  color:#18243a;
+}
+
+body::before{
+  background:linear-gradient(180deg,#ffffff 0,#f5f8ff 430px,#eef5ff 100%);
+}
+
+.site-header,
+.site-header.scrolled{
+  background:rgba(255,255,255,.98);
+  border-bottom-color:#d7e2f2;
+}
+
+.hero-media img,
+.image-frame img,
+.reception-gallery img,
+.home-photo-grid img,
+.card img,
+.place-photo,
+.room-gallery img,
+.modal-gallery img,
+.gallery-grid img,
+.room-preview-grid img,
+.book-aside img{
+  filter:saturate(1.08) contrast(1.04) brightness(1.08);
+}
+
+.hero{
+  background:#123a78;
+}
+
+.hero-shade{
+  background:linear-gradient(90deg,rgba(18,58,120,.62),rgba(31,95,184,.22) 58%,rgba(31,95,184,.04)),linear-gradient(0deg,rgba(16,28,52,.28),rgba(16,28,52,.02) 64%);
+}
+
+.hero-content{
+  text-shadow:0 2px 16px rgba(12,24,46,.35);
+}
+
+.hero-content p:not(.eyebrow){
+  color:rgba(255,255,255,.94);
+}
+
+.hero-badges span{
+  background:rgba(255,255,255,.18);
+  border-color:rgba(255,255,255,.38);
+}
+
+.page-hero,
+.signal,
+.travel-card,
+.info-card{
+  background:linear-gradient(135deg,#1f5fb8,#2878dc);
+}
+
+.book-hero{
+  background:linear-gradient(90deg,rgba(18,58,120,.64),rgba(31,95,184,.26)),url("../images/booking-room-types/property/01-61395759-a-hotel-sign-in-front-of-a-building-at-cricklewood-lodge-h.jpg") center/cover;
+}
+
+.hero-content .eyebrow,
+.page-hero .eyebrow,
+.book-hero .eyebrow,
+.cta .eyebrow,
+.signal span{
+  color:#ffe08a;
+}
+
+.page-hero::before,
+.book-hero::before{
+  background:linear-gradient(90deg,#f0b23d,#ffe08a 44%,#f05f4f);
+}
+
+.btn-primary,
+.site-header .btn-primary,
+.booking-form button,
+.book-card .booking-form button,
+.book-aside a,
+.footer-action,
+.mobile-book,
+.cta .btn-primary{
+  background:#f05f4f;
+  border-color:#f05f4f;
+  color:#fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible,
+.site-header .btn-primary:hover,
+.site-header .btn-primary:focus-visible,
+.booking-form button:hover,
+.book-card .booking-form button:hover,
+.book-aside a:hover,
+.footer-action:hover,
+.footer-action:focus-visible,
+.cta .btn-primary:hover,
+.cta .btn-primary:focus-visible{
+  background:#d94b3d;
+  border-color:#d94b3d;
+  color:#fff;
+}
+
+.nav-links,
+.footer p a,
+.footer-links a,
+.card-body span,
+.card-body a,
+.source-note a,
+.fact strong,
+.home-route-strip strong,
+.room-spec-table strong,
+.show-more{
+  color:#1f5fb8;
+}
+
+.btn-outline{
+  color:#1f5fb8;
+  border-color:#99bdea;
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible,
+.cta .btn-outline,
+.show-more:hover{
+  background:#1f5fb8;
+  border-color:#1f5fb8;
+  color:#fff;
+}
+
+.cta .btn-outline:hover,
+.cta .btn-outline:focus-visible{
+  background:#123a78;
+  border-color:#123a78;
+  color:#fff;
+}
+
+.nav-links a:hover,
+.nav-links a.active,
+.nav-dropdown a:hover,
+.nav-dropdown a.active,
+.mobile-menu a.active{
+  background:#e8f1ff;
+  color:#123a78;
+}
+
+.home-route-strip span,
+.route-options span,
+.place span,
+.footer-links strong{
+  color:#c88309;
+}
+
+.booking-card,
+.fact,
+.home-route-strip a,
+.card,
+.place,
+.amenity,
+.service,
+.policy,
+.travel-feature,
+.book-card,
+.book-aside,
+.room-listing,
+.footer{
+  background:#ffffff;
+  border-color:#d7e2f2;
+}
+
+.booking-card,
+.card,
+.place,
+.room-listing,
+.book-card,
+.book-aside,
+.travel-feature{
+  box-shadow:0 14px 34px rgba(31,95,184,.08);
+}
+
+.card:hover,
+.place:hover,
+.room-listing:hover,
+.home-route-strip a:hover{
+  border-color:#f0b23d;
+  box-shadow:0 18px 42px rgba(31,95,184,.13);
+}
+
+.cta{
+  background:linear-gradient(135deg,#ffffff,#eaf3ff);
+  color:#18243a;
+}
+
+.cta h2{
+  color:#18243a;
+}
+
+.cta p,
+.copy p,
+.card-body p,
+.place p,
+.amenity p,
+.service p,
+.policy p,
+.travel-feature p,
+.footer p{
+  color:#586274;
+}
+
+.footer{
+  background:#ffffff;
+  border-top-color:#d7e2f2;
+}
+
+.footer-lead{
+  border-bottom-color:#d7e2f2;
+}
