@@ -4315,3 +4315,47 @@ body::before{
 .footer-lead{
   border-bottom-color:#dedede;
 }
+
+/* Slightly larger header logo */
+.site-header .brand{
+  width:194px;
+}
+
+.site-header .brand-logo{
+  width:184px;
+  height:43px;
+}
+
+.site-header .brand-logo img{
+  max-height:43px;
+}
+
+@media (max-width:1000px){
+  .site-header .brand{
+    width:174px;
+  }
+
+  .site-header .brand-logo{
+    width:164px;
+    height:38px;
+  }
+
+  .site-header .brand-logo img{
+    max-height:38px;
+  }
+}
+
+@media (max-width:680px){
+  .site-header .brand{
+    width:146px;
+  }
+
+  .site-header .brand-logo{
+    width:142px;
+    height:34px;
+  }
+
+  .site-header .brand-logo img{
+    max-height:34px;
+  }
+}
