@@ -4444,3 +4444,16 @@ body::before{
     padding-bottom:54px;
   }
 }
+
+/* Improve hero location label contrast */
+.hero-content .eyebrow{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:6px 12px;
+  border-radius:4px;
+  background:rgba(0,0,0,.34);
+  color:#fff7d6;
+  text-shadow:0 2px 8px rgba(0,0,0,.72);
+  box-shadow:0 1px 0 rgba(255,255,255,.18) inset;
+}
