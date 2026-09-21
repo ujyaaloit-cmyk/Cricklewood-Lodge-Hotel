@@ -3271,3 +3271,182 @@ p{
     grid-template-columns:1fr;
   }
 }
+
+/* Theme correction: warmer, clearer, less flat */
+:root{
+  --ink:#23272a;
+  --muted:#66706e;
+  --paper:#f7f3ec;
+  --surface:#fffefa;
+  --line:#d9d1c4;
+  --royal:#2f5654;
+  --royal-dark:#213f3d;
+  --gold:#b77d43;
+  --wine:#8a4844;
+  --champagne:#f4eadc;
+}
+
+body{
+  background:#f7f3ec;
+}
+
+body::before{
+  background:linear-gradient(180deg,#fffefa 0,#f7f3ec 460px,#f2ede4 100%);
+}
+
+.site-header,
+.site-header.scrolled{
+  background:rgba(255,254,250,.97);
+  border-bottom-color:#d9d1c4;
+  box-shadow:0 10px 28px rgba(var(--shadow),.07);
+}
+
+.nav-links,
+.footer p a,
+.footer-links a{
+  color:#365e5c;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+  background:#f2eadf;
+  color:#213f3d;
+}
+
+.btn-primary,
+.site-header .btn-primary,
+.booking-form button,
+.book-card .booking-form button,
+.book-aside a,
+.footer-action,
+.mobile-book{
+  background:#8a4844;
+  border-color:#8a4844;
+  color:#fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible,
+.site-header .btn-primary:hover,
+.site-header .btn-primary:focus-visible,
+.booking-form button:hover,
+.book-card .booking-form button:hover,
+.book-aside a:hover,
+.footer-action:hover,
+.footer-action:focus-visible{
+  background:#713936;
+  border-color:#713936;
+}
+
+.btn-outline{
+  border-color:#b8aa98;
+  color:#2f5654;
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible{
+  background:#2f5654;
+  border-color:#2f5654;
+  color:#fff;
+}
+
+.hero{
+  background:#213f3d;
+}
+
+.hero-shade{
+  background:linear-gradient(90deg,rgba(24,38,38,.84),rgba(47,86,84,.46) 56%,rgba(47,86,84,.1)),linear-gradient(0deg,rgba(30,36,36,.48),rgba(30,36,36,.08) 60%);
+}
+
+.hero-content .eyebrow,
+.page-hero .eyebrow,
+.book-hero .eyebrow,
+.cta .eyebrow,
+.signal span{
+  color:#f1c783;
+}
+
+.booking-card,
+.fact,
+.home-route-strip a,
+.card,
+.place,
+.amenity,
+.service,
+.policy,
+.travel-feature,
+.book-card,
+.book-aside,
+.room-listing,
+.footer{
+  background:#fffefa;
+}
+
+.home-route-strip span,
+.route-options span,
+.place span,
+.footer-links strong{
+  color:#b77d43;
+}
+
+.signal,
+.page-hero,
+.travel-card,
+.info-card{
+  background:#2f5654;
+}
+
+.book-hero{
+  background:linear-gradient(90deg,rgba(33,63,61,.88),rgba(47,86,84,.62)),url("../images/booking-room-types/property/01-61395759-a-hotel-sign-in-front-of-a-building-at-cricklewood-lodge-h.jpg") center/cover;
+}
+
+.page-hero::before,
+.book-hero::before{
+  background:linear-gradient(90deg,#b77d43,#f1c783 44%,#8a4844);
+}
+
+.cta{
+  background:#fffefa;
+  color:#23272a;
+  border-top:1px solid #d9d1c4;
+  border-bottom:1px solid #d9d1c4;
+}
+
+.cta h2{
+  color:#23272a;
+}
+
+.cta p{
+  color:#66706e;
+}
+
+.cta .hero-actions{
+  justify-content:center;
+}
+
+.cta .btn-primary{
+  background:#8a4844;
+  border-color:#8a4844;
+  color:#fff;
+}
+
+.cta .btn-outline{
+  background:#2f5654;
+  border-color:#2f5654;
+  color:#fff;
+}
+
+.cta .btn-outline:hover,
+.cta .btn-outline:focus-visible{
+  background:#213f3d;
+  border-color:#213f3d;
+  color:#fff;
+}
+
+.footer{
+  border-top-color:#d9d1c4;
+}
+
+.footer-lead{
+  border-bottom-color:#d9d1c4;
+}
