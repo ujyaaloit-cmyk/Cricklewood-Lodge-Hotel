@@ -4082,3 +4082,236 @@ body::before{
 .footer-lead{
   border-bottom-color:#d7e2f2;
 }
+
+/* Clean neutral hotel theme */
+:root{
+  --ink:#202124;
+  --muted:#62666c;
+  --paper:#f5f5f3;
+  --surface:#ffffff;
+  --line:#dedede;
+  --royal:#243044;
+  --royal-dark:#151b26;
+  --gold:#9a7442;
+  --wine:#4f5968;
+  --blue:#46566f;
+  --champagne:#f1eee8;
+}
+
+body{
+  background:#f5f5f3;
+  color:#202124;
+}
+
+body::before{
+  background:linear-gradient(180deg,#ffffff 0,#f5f5f3 430px,#eeeeeb 100%);
+}
+
+.site-header,
+.site-header.scrolled{
+  background:rgba(255,255,255,.98);
+  border-bottom-color:#dedede;
+  box-shadow:0 8px 24px rgba(21,27,38,.07);
+}
+
+.hero-media img,
+.image-frame img,
+.reception-gallery img,
+.home-photo-grid img,
+.card img,
+.place-photo,
+.room-gallery img,
+.modal-gallery img,
+.gallery-grid img,
+.room-preview-grid img,
+.book-aside img{
+  filter:saturate(.98) contrast(1.03) brightness(1.04);
+}
+
+.hero{
+  background:#151b26;
+}
+
+.hero-shade{
+  background:linear-gradient(90deg,rgba(21,27,38,.72),rgba(36,48,68,.34) 58%,rgba(36,48,68,.06)),linear-gradient(0deg,rgba(21,27,38,.32),rgba(21,27,38,.04) 62%);
+}
+
+.hero-content{
+  text-shadow:0 2px 14px rgba(0,0,0,.32);
+}
+
+.hero-content p:not(.eyebrow){
+  color:rgba(255,255,255,.9);
+}
+
+.hero-badges span{
+  background:rgba(255,255,255,.14);
+  border-color:rgba(255,255,255,.34);
+}
+
+.page-hero,
+.signal,
+.travel-card,
+.info-card{
+  background:#243044;
+}
+
+.book-hero{
+  background:linear-gradient(90deg,rgba(21,27,38,.72),rgba(36,48,68,.34)),url("../images/booking-room-types/property/01-61395759-a-hotel-sign-in-front-of-a-building-at-cricklewood-lodge-h.jpg") center/cover;
+}
+
+.hero-content .eyebrow,
+.page-hero .eyebrow,
+.book-hero .eyebrow,
+.cta .eyebrow,
+.signal span,
+.home-route-strip span,
+.route-options span,
+.place span,
+.footer-links strong{
+  color:#9a7442;
+}
+
+.page-hero::before,
+.book-hero::before{
+  background:#9a7442;
+}
+
+.btn-primary,
+.site-header .btn-primary,
+.booking-form button,
+.book-card .booking-form button,
+.book-aside a,
+.footer-action,
+.mobile-book,
+.cta .btn-primary{
+  background:#243044;
+  border-color:#243044;
+  color:#fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible,
+.site-header .btn-primary:hover,
+.site-header .btn-primary:focus-visible,
+.booking-form button:hover,
+.book-card .booking-form button:hover,
+.book-aside a:hover,
+.footer-action:hover,
+.footer-action:focus-visible,
+.cta .btn-primary:hover,
+.cta .btn-primary:focus-visible{
+  background:#151b26;
+  border-color:#151b26;
+  color:#fff;
+}
+
+.nav-links,
+.footer p a,
+.footer-links a,
+.card-body span,
+.card-body a,
+.source-note a,
+.fact strong,
+.home-route-strip strong,
+.room-spec-table strong,
+.show-more{
+  color:#243044;
+}
+
+.btn-outline{
+  color:#243044;
+  border-color:#aeb4bd;
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible,
+.cta .btn-outline,
+.show-more:hover{
+  background:#243044;
+  border-color:#243044;
+  color:#fff;
+}
+
+.cta .btn-outline:hover,
+.cta .btn-outline:focus-visible{
+  background:#151b26;
+  border-color:#151b26;
+  color:#fff;
+}
+
+.nav-links a:hover,
+.nav-links a.active,
+.nav-dropdown a:hover,
+.nav-dropdown a.active,
+.mobile-menu a.active{
+  background:#ececec;
+  color:#151b26;
+}
+
+.booking-card,
+.fact,
+.home-route-strip a,
+.card,
+.place,
+.amenity,
+.service,
+.policy,
+.travel-feature,
+.book-card,
+.book-aside,
+.room-listing,
+.footer{
+  background:#ffffff;
+  border-color:#dedede;
+}
+
+.booking-card,
+.card,
+.place,
+.room-listing,
+.book-card,
+.book-aside,
+.travel-feature{
+  box-shadow:0 12px 30px rgba(21,27,38,.07);
+}
+
+.card:hover,
+.place:hover,
+.room-listing:hover,
+.home-route-strip a:hover{
+  border-color:#b8b8b8;
+  box-shadow:0 16px 36px rgba(21,27,38,.1);
+}
+
+.cta{
+  background:#ffffff;
+  color:#202124;
+  border-top:1px solid #dedede;
+  border-bottom:1px solid #dedede;
+}
+
+.cta h2{
+  color:#202124;
+}
+
+.cta p,
+.copy p,
+.card-body p,
+.place p,
+.amenity p,
+.service p,
+.policy p,
+.travel-feature p,
+.footer p{
+  color:#62666c;
+}
+
+.footer{
+  background:#ffffff;
+  border-top-color:#dedede;
+}
+
+.footer-lead{
+  border-bottom-color:#dedede;
+}
